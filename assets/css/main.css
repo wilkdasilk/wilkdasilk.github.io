@@ -1,1 +1,61 @@
 /* custom styles */
+body {
+  background: black;
+}
+
+header {
+  text-align: center;
+  background: white;
+}
+
+.profile {
+  height: 300px;
+  border-radius: 50em;
+}
+
+a {
+  text-decoration: none;
+  color:white;
+}
+nav {
+  background: black;
+}
+
+nav a {
+  padding: 10px;
+  display:inline-block;
+  height: 20px;
+}
+nav a:hover {
+  background-color:white;
+  color:black;
+}
+
+main {
+  background: black;
+  margin-bottom: 0;
+
+}
+
+section {
+   margin: 10px auto;
+   text-align: center;
+   background: white;
+   width: 800px;
+   min-height: 500px;
+ }
+
+h2 {
+  margin:0;
+}
+
+ footer {
+   position:fixed;
+   bottom:0;
+   text-align:center;
+   background: black;
+   color:white;
+   display:block;
+   margin: auto 0;
+   width:100%;
+ }
