@@ -16,28 +16,72 @@
   <script type="text/javascript" src="assets/js/app.js"></script>
   <!-- favicon -->
   <link rel="icon" type="image/png" href="assets/imgs/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 </head>
 <body>
   <div id="page-wrapper">
+    <div class="solidback">
+      <img src="assets/imgs/goldengate.jpg" alt="Golden Gate Bridge" class="backgroundimg">
+    </div>
     <header>
-      <h1>Auston Wilkinson</h1>
-      <img src="assets/imgs/selfie.PNG" alt="Auston Wilkinson" class="profile">
+      <h1><a href="#">Auston Wilkinson</a></h1>
+      <h2>web developer, programmer :: SF</h2>
+      <a href="#">
+        <img src="assets/imgs/selfie.PNG" alt="Auston Wilkinson" class="profile">
+      </a>
       <nav>
-        <a href="#">My Work</a>
-        <a href="#">Contact Me</a>
+        <a href="#mywork">My Work</a>
+        <a href="#contact">Contact Me</a>
       </nav>
     </header>
     <main>
+      <span class="anchor" id="mywork"></span>
       <section>
-          <h2>My Work</h2>
-
+          <h3>My Work</h3>
+          <p>Just a few of my many projects! Updated regularly.</p>
+          <a href="#" target="_blank">
+            <div class="project">
+              <img src="assets/imgs/project-icon.png" alt="My project" class="preview">
+            <p class="caption"> My Project #1</p>
+            </div>
+          </a>
+          <a href="#" target="_blank">
+            <div class="project">
+              <img src="assets/imgs/project-icon.png" alt="My project" class="preview">
+            <p class="caption"> My Project #2</p>
+            </div>
+          </a>
+          <a href="#" target="_blank">
+            <div class="project">
+              <img src="assets/imgs/project-icon.png" alt="My project" class="preview">
+            <p class="caption"> My Project #3</p>
+            </div>
+          </a>
+          <a href="#" target="_blank">
+            <div class="project">
+              <img src="assets/imgs/project-icon.png" alt="My project" class="preview">
+            <p class="caption"> My Project #4</p>
+            </div>
+          </a>
       </section>
-      <section>
-          <h2>Contact Me</h2>
-      </section> 
+      <section id="contact">
+          <h3>Contact Me</h3>
+          <p>Feel free to reach out if you think we'd work well together! <br />Always looking for a great collaboration.</p>
+          <div class="container">
+            <a href="mailto:anwilk92@gmail.com">
+                <img src="assets/imgs/email-icon.png" alt="Email me" class="icon">
+            </a>
+            <a href="http://www.github.com/wilkdasilk" target="_blank">
+                <img src="assets/imgs/github-icon.svg" alt="Github repository" class="icon">
+            </a>
+            <a href="http://www.linkedin.com/in/austonwilkinson" target="_blank">
+                <img src="assets/imgs/linkedin-icon.jpg" alt="LinkedIn" class="icon">
+            </a>
+          </div>
+      </section>
     </main>
     <footer>
-        <p>Copyright Auston Wilkinson 2017</p>
+        <p>© Auston Wilkinson 2017</p>
     </footer>
   </div>
 </body>

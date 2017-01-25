@@ -1,16 +1,80 @@
 /* custom styles */
+html{
+  box-shadow: 20px 20px 20px 20px rgba(0,0,0,.1) inset;
+
+}
+
 body {
-  background: black;
+  background-color:rgb(0,150,255);
+  background-color: -webkit-linear-gradient(rgb(0,150,255), rgb(0,100,255)); /* For Safari 5.1 to 6.0 */
+  background-color: -o-linear-gradient(rgb(0,150,255), rgb(0,100,255)); /* For Opera 11.1 to 12.0 */
+  background-color: -moz-linear-gradient(rgb(0,150,255), rgb(0,100,255)); /* For Firefox 3.6 to 15 */
+  background-color: linear-gradient(rgb(0,150,255), rgb(0,100,255));
+
+  font-family: 'Source Sans Pro', sans-serif;
+
 }
 
 header {
-  text-align: center;
-  background: white;
+  color:white;
+  position:fixed;
+  top:0;
+  display:inline-block;
+  width:100%;
+  height: 200px;
+  opacity:1;
+  z-index: 10;
+
+
+
+}
+.backgroundimg {
+
+  width:100%;
+  background-repeat:no-repeat;
+  opacity: .8;
+  object-fit: cover;
+  max-height:200px;
+
+}
+
+.solidback {
+  position:fixed;
+  top:0;
+  background-color: rgb(0,150,255);
+  opacity: 1;
+  z-index: 10;
+}
+
+h1 {
+  float: right;
+  clear:right;
+  margin-left: 20px;
+  font-size: 2em;
+  margin-bottom:10px;
+  padding-right:30px;
+}
+h2 {
+  float: right;
+  clear:right;
+  margin-left: 20px;
+  font-size:1.2em;
+  margin-top:10px;
+  padding-right:30px;
+
+
 }
 
 .profile {
-  height: 300px;
-  border-radius: 50em;
+  height: 120px;
+  border-radius: 50%;
+  float:left;
+  clear:left;
+  margin: -30px 0px 0px 30px;
+  padding-bottom:20px;
+}
+.profile:hover{
+  height:150px;
 }
 
 a {
@@ -18,44 +82,99 @@ a {
   color:white;
 }
 nav {
-  background: black;
+  text-align:right;
+  float:right;
+  clear:right;
+  padding-right:30px;
+
 }
 
 nav a {
   padding: 10px;
   display:inline-block;
   height: 20px;
+
 }
 nav a:hover {
-  background-color:white;
-  color:black;
+  background:rgb(0,150,255)
 }
 
 main {
-  background: black;
   margin-bottom: 0;
+  margin-top: 210px;
 
 }
 
 section {
    margin: 10px auto;
    text-align: center;
-   background: white;
-   width: 800px;
-   min-height: 500px;
+   background: rgba(255,255,255,.9);
+   width: 75%;
+   min-width: 600px;
+   min-height: 300px;
+   border-radius: 20px;
  }
 
-h2 {
+h3 {
   margin:0;
+  padding: 10px;
+  font-size:1.2em;
+  font-weight: 900;
 }
 
  footer {
-   position:fixed;
    bottom:0;
    text-align:center;
-   background: black;
    color:white;
    display:block;
    margin: auto 0;
    width:100%;
  }
+
+ .preview {
+   width:200px;
+   height:200px;
+ }
+
+.project {
+  display:inline-block;
+  margin: 10px 40px;
+}
+
+.caption {
+  color:black;
+  background: rgba(0,0,0,.2);
+  padding:5px 0px;
+}
+
+.caption:hover {
+  color:white;
+  background:rgb(0,150,255);
+}
+
+.icon:hover{
+  border: 7px solid rgb(0,150,255);
+  background:white;
+}
+
+.icon {
+  margin: 10px 40px 30px 40px;
+  display:inline-block;
+  width:100px;
+  height:100px;
+  border-radius: 15px;
+  border: 7px solid white;
+}
+
+.container {
+  margin:5% auto;
+
+}
+
+/* from https://pixelflips.com/blog/anchor-links-with-a-fixed-header */
+.anchor {
+  display:block;
+  height:200px;
+  margin-top:-200px;
+  visibility: hidden;
+}
