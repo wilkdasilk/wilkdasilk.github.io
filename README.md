@@ -9,5 +9,5 @@ This site utilizes modern web tools, including HTML5, CSS3, ES6, jQuery, and Boo
 
 ## View the site
 
-[logo] assets/imgs/screenshot.png "Live screenshot"
+[logo]: assets/imgs/screenshot.png "Live screenshot"
 [Click here to view the site](wilkdasilk.github.io)
