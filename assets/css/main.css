@@ -1,6 +1,5 @@
 /* custom styles */
 html{
-  box-shadow: 20px 20px 20px 20px rgba(0,0,0,.1) inset;
 
 }
 
@@ -12,29 +11,30 @@ body {
   background-color: linear-gradient(rgb(0,150,255), rgb(0,100,255));
 
   font-family: 'Source Sans Pro', sans-serif;
-
 }
 
 header {
   color:white;
-  position:fixed;
   top:0;
   display:inline-block;
   width:100%;
-  height: 200px;
+  height: 225px;
   opacity:1;
   z-index: 10;
-
-
+  padding:0;
+}
+.fixed {
+  position:fixed;
 
 }
+
 .backgroundimg {
 
   width:100%;
   background-repeat:no-repeat;
   opacity: .8;
   object-fit: cover;
-  max-height:200px;
+  height:225px;
 
 }
 
@@ -44,40 +44,39 @@ header {
   background-color: rgb(0,150,255);
   opacity: 1;
   z-index: 10;
+  width:100%;
+  left:0;
+  margin-right:0;
 }
 
-h1 {
+.header-right {
   float: right;
   clear:right;
-  margin-left: 20px;
-  font-size: 2em;
+  padding-right:12%;
+}
+h1 {
+
   margin-bottom:10px;
-  padding-right:30px;
+
+
 }
 h2 {
-  float: right;
-  clear:right;
-  margin-left: 20px;
-  font-size:1.2em;
   margin-top:10px;
-  padding-right:30px;
-
+  word-wrap: break-word;
+  font-size: 25px;
 
 }
 
 .profile {
-  height: 120px;
+  height: 20%;
   border-radius: 50%;
-  float:left;
-  clear:left;
-  margin: -30px 0px 0px 30px;
-  padding-bottom:20px;
-}
-.profile:hover{
-  height:150px;
+  top:40px;
+  left:5%;
+  position:fixed;
+
 }
 
-a {
+a, a:visited, a:hover {
   text-decoration: none;
   color:white;
 }
@@ -85,23 +84,32 @@ nav {
   text-align:right;
   float:right;
   clear:right;
-  padding-right:30px;
+  display: inline;
+
 
 }
 
 nav a {
-  padding: 10px;
+  padding-left: 10px;
+  padding-right:10px;
   display:inline-block;
   height: 20px;
+  font-size: 1.2em;
 
 }
+a:hover {
+  text-decoration: none;
+  color:white;
+}
 nav a:hover {
-  background:rgb(0,150,255)
+  background:rgb(0,150,255);
 }
 
 main {
   margin-bottom: 0;
-  margin-top: 210px;
+  margin-top: 235px;
+  padding-left: 10%;
+  padding-right: 10%;
 
 }
 
@@ -109,8 +117,6 @@ section {
    margin: 10px auto;
    text-align: center;
    background: rgba(255,255,255,.9);
-   width: 75%;
-   min-width: 600px;
    min-height: 300px;
    border-radius: 20px;
  }
@@ -133,18 +139,25 @@ h3 {
 
  .preview {
    width:200px;
-   height:200px;
+   height:150px;
+
  }
 
-.project {
-  display:inline-block;
-  margin: 10px 40px;
-}
 
 .caption {
   color:black;
   background: rgba(0,0,0,.2);
   padding:5px 0px;
+  max-width:200px;
+  margin:auto;
+}
+
+.fadingDescription {
+  background: white;
+  color: rgb(0,150,255);
+  width:200px;
+  margin:auto;
+
 }
 
 .caption:hover {
@@ -155,18 +168,23 @@ h3 {
 .icon:hover{
   border: 7px solid rgb(0,150,255);
   background:white;
+
 }
 
 .icon {
-  margin: 10px 40px 30px 40px;
+  margin: 5%;
   display:inline-block;
-  width:100px;
-  height:100px;
-  border-radius: 15px;
+  width:12%;
+  height:12%;
+  min-width:75px;
+  mix-height:75px;
+  border-radius: 18px;
   border: 7px solid white;
+
+
 }
 
-.container {
+.box {
   margin:5% auto;
 
 }
@@ -174,7 +192,16 @@ h3 {
 /* from https://pixelflips.com/blog/anchor-links-with-a-fixed-header */
 .anchor {
   display:block;
-  height:200px;
-  margin-top:-200px;
+  height:225px;
+  margin-top:-225px;
   visibility: hidden;
+}
+
+.projects {
+  padding-bottom:5%;
+}
+
+.project {
+  padding-top:5%;
+
 }

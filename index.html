@@ -5,84 +5,81 @@
   <!-- meta -->
   <meta charset="utf-8" />
   <meta name="description" content="Personal Site">
-  <meta name="author" content="GA Student">
+  <meta name="author" content="Auston Wilkinson">
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
   <!-- mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- styles -->
   <link rel="stylesheet" type="text/css" href="vendor/css/normalize.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
   <!-- scripts -->
-  <script type="text/javascript" src="assets/js/app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <!-- favicon -->
   <link rel="icon" type="image/png" href="assets/imgs/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 </head>
-<body>
-  <div id="page-wrapper">
+<body data-spy="scroll" data-target=".navbar">
+  <div class="container">
     <div class="solidback">
       <img src="assets/imgs/goldengate.jpg" alt="Golden Gate Bridge" class="backgroundimg">
     </div>
-    <header>
-      <h1><a href="#">Auston Wilkinson</a></h1>
-      <h2>web developer, programmer :: SF</h2>
-      <a href="#">
-        <img src="assets/imgs/selfie.PNG" alt="Auston Wilkinson" class="profile">
-      </a>
-      <nav>
-        <a href="#mywork">My Work</a>
-        <a href="#contact">Contact Me</a>
-      </nav>
-    </header>
+    <div class="row">
+      <header class="fixed">
+        <div class="col-xs-3">
+            <img src="assets/imgs/selfie.PNG" alt="Auston Wilkinson" class="profile">
+        </div>
+        <div class="col-xs-9 header-right">
+          <h1 class="text-right"><a href="#">Auston Wilkinson</a></h1>
+          <h2 class="text-right">web developer, programmer :: SF</h2>
+
+          <nav class"navbar">
+            <a class="page-scroll" href="#mywork">My Work</a>
+            <a class="page-scroll" href="#contact">Contact Me</a>
+        </nav>
+      </div>
+      </header>
+    </div>
     <main>
       <span class="anchor" id="mywork"></span>
-      <section>
-          <h3>My Work</h3>
-          <p>Just a few of my many projects! Updated regularly.</p>
-          <a href="#" target="_blank">
-            <div class="project">
-              <img src="assets/imgs/project-icon.png" alt="My project" class="preview">
-            <p class="caption"> My Project #1</p>
+      <div>
+        <section>
+            <h3>My Work</h3>
+            <p>Just a few of my many projects! Updated regularly.</p>
+            <div class="row projects">
+              <!-- JavaScript imports projects-->
             </div>
-          </a>
-          <a href="#" target="_blank">
-            <div class="project">
-              <img src="assets/imgs/project-icon.png" alt="My project" class="preview">
-            <p class="caption"> My Project #2</p>
+        </section>
+      </div>
+      <div>
+        <span class="anchor" id="contact"></span>
+        <section>
+            <h3>Contact Me</h3>
+            <p>Feel free to reach out if you think we'd work well together! <br />Always looking for a great collaboration.</p>
+            <div class="box">
+              <a href="mailto:anwilk92@gmail.com">
+                  <img src="assets/imgs/email-icon.png" alt="Email me" class="icon">
+                </a>
+                <a href="http://www.github.com/wilkdasilk" target="_blank">
+                  <img src="assets/imgs/github-icon.svg" alt="Github repository" class="icon">
+                </a>
+                <a href="http://www.linkedin.com/in/austonwilkinson" target="_blank">
+                  <img src="assets/imgs/linkedin-icon.jpg" alt="LinkedIn" class="icon">
+                </a>
+                <a href="http://www.twitter.com/austonwilkinson" target="_blank">
+                  <img src="assets/imgs/twitter-icon.png" alt="LinkedIn" class="icon">
+                </a>
             </div>
-          </a>
-          <a href="#" target="_blank">
-            <div class="project">
-              <img src="assets/imgs/project-icon.png" alt="My project" class="preview">
-            <p class="caption"> My Project #3</p>
-            </div>
-          </a>
-          <a href="#" target="_blank">
-            <div class="project">
-              <img src="assets/imgs/project-icon.png" alt="My project" class="preview">
-            <p class="caption"> My Project #4</p>
-            </div>
-          </a>
-      </section>
-      <section id="contact">
-          <h3>Contact Me</h3>
-          <p>Feel free to reach out if you think we'd work well together! <br />Always looking for a great collaboration.</p>
-          <div class="container">
-            <a href="mailto:anwilk92@gmail.com">
-                <img src="assets/imgs/email-icon.png" alt="Email me" class="icon">
-            </a>
-            <a href="http://www.github.com/wilkdasilk" target="_blank">
-                <img src="assets/imgs/github-icon.svg" alt="Github repository" class="icon">
-            </a>
-            <a href="http://www.linkedin.com/in/austonwilkinson" target="_blank">
-                <img src="assets/imgs/linkedin-icon.jpg" alt="LinkedIn" class="icon">
-            </a>
-          </div>
-      </section>
+          </section>
+      </div>
     </main>
     <footer>
         <p>© Auston Wilkinson 2017</p>
     </footer>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap-scrolling-nav.js"></script>
   </div>
 </body>
 </html>
