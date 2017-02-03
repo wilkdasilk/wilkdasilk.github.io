@@ -19,16 +19,16 @@ var data = [
     link:"http://goodsanjuan.com/"
   },
   {
-    name:"Seeing In Stereo",
-    description:"Music Blog design",
-    picture:"https://github.com/wilkdasilk/SeeingInStereo/blob/master/images/bayvision.JPG?raw=true",
-    link:"https://github.com/wilkdasilk/SeeingInStereo.git"
+    name:"QuakeMap",
+    description:"Track recent earthquakes",
+    picture:"assets/imgs/QuakeMap.png",
+    link:"https://github.com/wilkdasilk/QuakeMap"
   },
   {
-    name:"Memory Game",
-    description:"Play a simple card Memory game",
-    picture:"assets/imgs/memorygame.png",
-    link:"https://github.com/wilkdasilk/wdi-fundamentals-memorygame"
+    name:"Red Racer",
+    description:"Play a retro-style racing game",
+    picture:"assets/imgs/Red_Racer.png",
+    link:"https://github.com/wilkdasilk/RedRacer"
   }
 ];
 
