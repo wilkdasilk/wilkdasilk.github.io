@@ -1,8 +1,14 @@
 // sanity check
 console.log("app.js linked.");
 
+var tempProject = {};
 
-
+$.ajax({
+  url: "https://api.github.com/search/repositories?q=user:wilkdasilk+topic:featured+fork:true&sort=updated",
+  method: "GET",
+  success: getProjects,
+  error: onError
+});
 
 //json for projects
 var data = [
@@ -34,23 +40,60 @@ var data = [
 
 //body hides
 $('body').hide();
+appendProjects();
 
+function appendProjects() {
+  console.log("appending projects");
+  //append project data
+  for (var i=0;i<data.length;i++) {
+    var currentProject=data[i];
+    appendProject(currentProject);
+  };
+}
 
-//append project data
-for (var i=0;i<data.length;i++) {
-  var currentProject=data[i];
-  console.log(currentProject);
+function appendProject(project) {
   $('.projects').append(`
     <div class='col-lg-6 col-md-6 col-sm-12 col-md-xs-12 '>
-      <a href='${currentProject.link}' target='_blank'>
+      <a href='${project.link}' target='_blank'>
         <div class="project">
-          <img src='${currentProject.picture}' class='preview' title='${currentProject.description}'>
-          <p class='caption'>${currentProject.name}</p>
+          <img src='${project.picture}' class='preview' title='${project.description}'>
+          <p class='caption'>${project.name}</p>
         </div>
         </a>
     </div>`
   );
-};
+}
+
+function getProjects(res) {
+  res.items.forEach(function(item){
+    tempProject = {
+      name: item.name,
+      description: item.description,
+      link: item.html_url,
+      live: item.homepage
+    };
+    $.ajax({
+      url: `https://api.github.com/repos/${item.full_name}/contents/app/assets/images/preview`,
+      method: "GET",
+      async: false,
+      success: addPhoto,
+      error:onError
+    });
+  });
+}
+
+function addPhoto(res) {
+  console.log('got image, what next?');
+  tempProject.photo = res[0].download_url;
+  data.push(tempProject);
+  console.log(tempProject);
+  tempProject = {};
+  appendProject(data.slice(-1)[0]);
+}
+
+function onError(res) {
+  console.log(res);
+}
 
 //scrolling anchors from https://startbootstrap.com/template-overviews/scrolling-nav/
 $(function() {
