@@ -1,16 +1,15 @@
 /* custom styles */
-html{
-
+html::-webkit-scrollbar {
+    display: none;
 }
 
 body {
-  background-color:rgb(0,150,255);
-  background-color: -webkit-linear-gradient(rgb(0,150,255), rgb(0,100,255)); /* For Safari 5.1 to 6.0 */
-  background-color: -o-linear-gradient(rgb(0,150,255), rgb(0,100,255)); /* For Opera 11.1 to 12.0 */
-  background-color: -moz-linear-gradient(rgb(0,150,255), rgb(0,100,255)); /* For Firefox 3.6 to 15 */
-  background-color: linear-gradient(rgb(0,150,255), rgb(0,100,255));
-
+  background-color:white;
   font-family: 'Source Sans Pro', sans-serif;
+  min-width: 320px;
+}
+p {
+  font-size: 1.1em;
 }
 
 header {
@@ -23,28 +22,56 @@ header {
   z-index: 10;
   padding:0;
 }
+.top {
+  height:225px;
+}
 .fixed {
-  position:fixed;
-
+  position:relative;
+  left:0;
 }
 
 .backgroundimg {
-
   width:100%;
   background-repeat:no-repeat;
   opacity: .8;
   object-fit: cover;
   height:225px;
+  min-width: 320px;
 
 }
 
+@media (min-width: 1200px) {
+  .container {
+    width: 85%;
+  }
+  .project {
+    width: 100%;
+  }
+  .project p {
+    position: absolute;
+    top: 23%;
+    transform: translateY(-23%);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+}
+
+@media (min-width: 991px) {
+  img.preview, section {
+    min-height: 250px;
+    height: 21vw;
+    }
+}
+
 .solidback {
-  position:fixed;
+  position:absolute;
   top:0;
   background-color: rgb(0,150,255);
   opacity: 1;
   z-index: 10;
   width:100%;
+  min-width: 320px;
   left:0;
   margin-right:0;
 }
@@ -52,97 +79,120 @@ header {
 .header-right {
   float: right;
   clear:right;
-  padding-right:12%;
+  padding-left:0px;
 }
 h1 {
-
   margin-bottom:10px;
-
-
 }
+
 h2 {
   margin-top:10px;
   word-wrap: break-word;
-  font-size: 25px;
+  font-size: 22px;
+}
 
+.profile-wrapper {
+  height: 100%;
+  width: 100%;
 }
 
 .profile {
-  height: 20%;
-  border-radius: 50%;
-  top:40px;
-  left:5%;
-  position:fixed;
-
+  top: 15px;
+  max-width: 30vw;
+  min-width: 100px;
+  width: 135px;
+  border-radius: 10px;
+  position: absolute;
+  ;
 }
 
-a, a:visited, a:hover {
-  text-decoration: none;
-  color:white;
-}
-nav {
-  text-align:right;
-  float:right;
+.nav-container {
+  text-align: center;
   clear:right;
-  display: inline;
-
-
+  padding: 0;
+  top:-62px;
+  z-index: 10;
+  margin: 0 -15px;
 }
 
-nav a {
-  padding-left: 10px;
-  padding-right:10px;
-  display:inline-block;
-  height: 20px;
-  font-size: 1.2em;
-
+.navbar-collapse {
+  padding:0;
 }
-a:hover {
+
+.navbar-toggle {
+  color:white;
+}
+
+a, a:hover, nav a, nav a:visited, nav a:hover {
   text-decoration: none;
   color:white;
 }
-nav a:hover {
+
+.nav>li {
+  display: inline-block;
+}
+
+div.in .nav>li, div.collapsing .nav>li {
+  display: block;
+  background: black;
+}
+
+nav a, .project a {
+  font-size: 1.2em;
+  padding: 10px 15px;
+}
+
+.nav>li>a:hover, .nav>li>a:hover:focus, .project a {
   background:rgb(0,150,255);
+}
+
+.nav>li>a:focus {
+  background: transparent;
 }
 
 main {
   margin-bottom: 0;
-  margin-top: 235px;
-  padding-left: 10%;
-  padding-right: 10%;
-
+  text-align: center;
 }
 
 section {
-   margin: 10px auto;
    text-align: center;
    background: rgba(255,255,255,.9);
-   min-height: 300px;
-   border-radius: 20px;
+ }
+
+ img.preview {
+   box-shadow: 2px 2px 8px black;
  }
 
 h3 {
-  margin:0;
   padding: 10px;
-  font-size:1.2em;
+  font-size:1.8em;
   font-weight: 900;
 }
 
- footer {
+h4 {
+  font-size: 1.6em;
+}
+
+footer {
    bottom:0;
    text-align:center;
-   color:white;
+   color:black;
    display:block;
    margin: auto 0;
    width:100%;
  }
-
- .preview {
-   width:200px;
-   height:150px;
-
+ footer p {
+   margin: 10px 0;
  }
 
+ .box {
+   height: 55px;
+ }
+
+ .preview {
+   width:100%;
+ }
 
 .caption {
   color:black;
@@ -166,42 +216,50 @@ h3 {
 }
 
 .icon:hover{
-  border: 7px solid rgb(0,150,255);
+  border: 0px groove black;
+  transform: scale(1.02);
   background:white;
-
 }
 
 .icon {
-  margin: 5%;
+  margin: 1%;
   display:inline-block;
-  width:12%;
-  height:12%;
-  min-width:75px;
-  mix-height:75px;
-  border-radius: 18px;
-  border: 7px solid white;
-
-
+  width:5%;
+  max-width: 47px;
+  min-width:45px;
+  min-height:45px;
+  border-radius: 50%;
+  background:white;
+  border: 4px solid transparent;
+  background-clip: padding-box;
 }
 
-.box {
-  margin:5% auto;
-
+.project-links a:hover {
+  background:rgba(0,150,255,.8);
 }
 
-/* from https://pixelflips.com/blog/anchor-links-with-a-fixed-header */
-.anchor {
-  display:block;
-  height:225px;
-  margin-top:-225px;
-  visibility: hidden;
+.project-links {
+  padding:30px 0;
+  height: 42px;
+  bottom: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .projects {
-  padding-bottom:5%;
+  margin: 10px auto;
+}
+
+.projects div {
+  margin-bottom: 25px;
 }
 
 .project {
-  padding-top:5%;
+  padding:3%;
+  min-height: 250px;
+}
 
+.project p {
+  padding: 25px;
 }

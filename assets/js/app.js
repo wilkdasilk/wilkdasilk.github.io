@@ -1,7 +1,23 @@
 // sanity check
 console.log("app.js linked.");
 
+// Because ruby does it better and why not?
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+String.prototype.titleize = function() {
+    var string_array = this.split(' ');
+    string_array = string_array.map(function(str) {
+       return str.capitalize();
+    });
+
+    return string_array.join(' ');
+}
+
 var tempProject = {};
+var showProjectIndex = 0;
+var currentProject;
 
 $.ajax({
   url: "https://api.github.com/search/repositories?q=user:wilkdasilk+topic:featured+fork:true&sort=updated",
@@ -12,60 +28,81 @@ $.ajax({
 
 //json for projects
 var data = [
-  {
-    name:"Portfolio site",
-    description:"This personal portfolio site",
-    picture:"assets/imgs/portfolio.png",
-    link:"https://github.com/wilkdasilk/wilkdasilk.github.io"
-  },
-  {
-    name:"Good San Juan",
-    description:"Web design for my band, Good San Juan",
-    picture:"http://goodsanjuan.com/images/IMG_5938%20-%20Version%203.jpg",
-    link:"http://goodsanjuan.com/"
-  },
-  {
-    name:"QuakeMap",
-    description:"Track recent earthquakes",
-    picture:"assets/imgs/QuakeMap.png",
-    link:"https://github.com/wilkdasilk/QuakeMap"
-  },
-  {
-    name:"Red Racer",
-    description:"Play a retro-style racing game",
-    picture:"assets/imgs/Red_Racer.png",
-    link:"https://github.com/wilkdasilk/RedRacer"
-  }
+  // {
+  //   description: "What kind of creature are you? Idk, better take a quiz. Single-page app, no framework.",
+  //   link: "https://github.com/wilkdasilk/MiddleEarthCreatureQuiz",
+  //   live: "https://desolate-wave-59412.herokuapp.com/",
+  //   name: "MiddleEarthCreatureQuiz",
+  //   picture: "https://raw.githubusercontent.com/wilkdasilk/MiddleEarthCreatureQuiz/master/app/assets/images/preview/creaturequiz-preview.png"
+  // },
+  // {
+  //   description: "A travel community for users to share city specific tips about their favorite locations around the world ",
+  //   link: "https://github.com/wilkdasilk/vagabond",
+  //   live: "http://levagabond.herokuapp.com/",
+  //   name: "vagabond",
+  //   picture: "https://raw.githubusercontent.com/wilkdasilk/vagabond/master/app/assets/images/preview/levagabond-preview.png"
+  // },
+  // {
+  //   description: "An attempt to make the world a better place by providing people with cool activities to do",
+  //   link: "https://github.com/wilkdasilk/actividay",
+  //   live: "http://actividay.herokuapp.com/",
+  //   name: "actividay",
+  //   picture: "https://raw.githubusercontent.com/wilkdasilk/actividay/master/app/assets/images/preview/actividay-preview.png"
+  // },
+  // {
+  //   description: "Curate crowdsourced playlists around a geolocation",
+  //   link: "https://github.com/wilkdasilk/NoiseFlag",
+  //   live: "http://noiseflag.herokuapp.com/",
+  //   name: "NoiseFlag",
+  //   picture: "https://raw.githubusercontent.com/wilkdasilk/NoiseFlag/master/app/assets/images/preview/Noiseflag_preview.png"
+  // }
 ];
 
 //body hides
 $('body').hide();
-appendProjects();
+appendLinks();
+//showProject(data[0]);
 
-function appendProjects() {
-  console.log("appending projects");
+function appendLinks() {
+  console.log("appending links");
   //append project data
   for (var i=0;i<data.length;i++) {
-    var currentProject=data[i];
-    appendProject(currentProject);
+    currentProject=data[i];
+    appendLink(currentProject, i);
   };
 }
 
-function appendProject(project) {
-  $('.projects').append(`
-    <div class='col-lg-6 col-md-6 col-sm-12 col-md-xs-12 '>
-      <a href='${project.link}' target='_blank'>
-        <div class="project">
-          <img src='${project.picture}' class='preview' title='${project.description}'>
-          <p class='caption'>${project.name}</p>
+function showProject(project) {
+  $('.projects').html(`
+    <div class='col-lg-6 col-md-6 col-sm-12 col-md-xs-12'>
+      <img src='${project.picture}' class='preview'>
+    </div>
+    <div class='col-lg-6 col-md-6 col-sm-12 col-md-xs-12'>
+      <section>
+        <div class='project'>
+          <h4>${project.name.titleize()}</h3>
+          <p>${project.description}</p>
+          <div class="project-links">
+            <a href='${project.link}' target='_blank'>Repo</a>
+            <a href='${project.live}' target='_blank'>Live</a>
+          </div>
         </div>
-        </a>
+      </section>
     </div>`
   );
 }
 
+function appendLink(currentProject, index) {
+  $('.projects-nav').append(`
+    <li role='presentation'>
+      <a href='#' data-index='${index}'>${currentProject.name.titleize()}</a>
+    </li>
+    `);
+}
+
 function getProjects(res) {
   res.items.forEach(function(item){
+    console.log(item.name);
     tempProject = {
       name: item.name,
       description: item.description,
@@ -83,30 +120,35 @@ function getProjects(res) {
 }
 
 function addPhoto(res) {
-  console.log('got image, what next?');
-  tempProject.photo = res[0].download_url;
+  tempProject.picture = res[0].download_url;
   data.push(tempProject);
-  console.log(tempProject);
+  currentProject = data.slice(-1)[0];
+  appendLink(currentProject, data.length-1);
+  showProject(data[showProjectIndex]);
   tempProject = {};
-  appendProject(data.slice(-1)[0]);
 }
 
 function onError(res) {
   console.log(res);
 }
 
-//scrolling anchors from https://startbootstrap.com/template-overviews/scrolling-nav/
-$(function() {
-    $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
-        event.preventDefault();
-    });
-});
-
 //content fades in on page ready
 $(document).ready(function(){
   $('body').fadeIn(800)
+});
+
+$('.projects-nav').on('click', 'a', function(event){
+  if (  showProjectIndex != $(this).attr('data-index') ) {
+    showProjectIndex = $(this).attr('data-index');
+    $('.projects-wrapper').children().fadeOut(100, function (){
+      $('.projects-wrapper').children().fadeIn(800);
+    showProject(data[showProjectIndex]);
+    });
+  }
+});
+
+$(window).resize(function(){
+ if ($(window).width()>767) {
+  $('.navbar-collapse').removeClass('in');
+ }
 });
