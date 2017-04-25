@@ -72,7 +72,7 @@ header {
   }
 }
 
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   img.preview, section {
     min-height: 250px;
     height: 21vw;
