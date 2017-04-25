@@ -86,11 +86,26 @@ header {
 }
 h1 {
   margin-bottom:10px;
+  font-size: 36px;
 }
 
 h2 {
   margin-top:10px;
   word-wrap: break-word;
+  font-size: 22px;
+}
+
+h3 {
+  padding: 10px;
+  font-size:1.8em;
+  font-weight: 900;
+}
+
+h4 {
+  font-size: 1.6em;
+}
+
+h5 {
   font-size: 22px;
 }
 
@@ -167,16 +182,6 @@ section {
    box-shadow: 2px 2px 8px black;
  }
 
-h3 {
-  padding: 10px;
-  font-size:1.8em;
-  font-weight: 900;
-}
-
-h4 {
-  font-size: 1.6em;
-}
-
 footer {
    bottom:0;
    text-align:center;
@@ -227,14 +232,13 @@ footer {
 .icon {
   margin: 1%;
   display:inline-block;
-  width:5%;
-  max-width: 47px;
-  min-width:45px;
-  min-height:45px;
+  width: 47px;
   border-radius: 50%;
   background:white;
   border: 4px solid transparent;
   background-clip: padding-box;
+  vertical-align: middle;
+  color: black;
 }
 
 .project-links a:hover {
