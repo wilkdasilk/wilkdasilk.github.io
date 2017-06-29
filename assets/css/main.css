@@ -30,24 +30,10 @@ header {
   left:0;
 }
 
-.backgroundimg {
-  width:100%;
-  background-repeat:no-repeat;
-  opacity: .8;
-  object-fit: cover;
-  position:absolute;
-  bottom:0;
-  min-height:225px;
-  max-height: 525px;
-
-}
-
 .solidback {
   position:absolute;
   top:0;
-  background-color: rgb(0,150,255);
-  opacity: 1;
-  z-index: 10;
+  background-color: black;
   width:100%;
   min-width: 320px;
   left:0;
@@ -254,12 +240,16 @@ footer {
   transform: translateX(-50%);
 }
 
-.projects {
+.row.projects {
   margin: 10px auto;
+  background-color:black;
+
 }
 
-.projects div {
+.projects div:not(.parallax, .parallax-container) {
   margin-bottom: 25px;
+  margin-top: 25px;
+
 }
 
 .project {
@@ -269,4 +259,45 @@ footer {
 
 .project p {
   padding: 25px;
+}
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  z-index: 0;
+  background-color: white;
+  box-shadow: inset 0px 0px 150px rgba(0,0,0,1);
+}
+
+.parallax-container .parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.parallax-container .parallax img {
+  opacity: 0.9;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  object-fit: cover;
+  width: 100%;
+  min-height: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.project-details {
+  min-height: 700px;
+  padding: 50px;
+}
+
+.row.projects > :nth-child(2n+0) {
+  background-color:white;
 }
