@@ -22,12 +22,8 @@ header {
   z-index: 10;
   padding:0;
 }
-.top {
-  height:225px;
-}
 .fixed {
   position:relative;
-  left:0;
 }
 
 .solidback {
@@ -69,6 +65,7 @@ header {
   float: right;
   clear:right;
   padding-left:0px;
+  height: calc(225px - 56px);
 }
 h1 {
   margin-bottom:10px;
@@ -85,6 +82,8 @@ h3 {
   padding: 10px;
   font-size:1.8em;
   font-weight: 900;
+  margin: 0;
+  text-align: left;
 }
 
 h4 {
@@ -96,7 +95,7 @@ h5 {
 }
 
 .profile-wrapper {
-  height: 100%;
+  height: calc(225px - 56px);
   width: 100%;
 }
 
@@ -111,16 +110,16 @@ h5 {
 }
 
 .nav-container {
+  position: relative;
   text-align: center;
   clear:right;
   padding: 0;
-  top:-62px;
-  z-index: 10;
-  margin: 0 -15px;
+  width: 100%;
 }
 
 .navbar-collapse {
   padding:0;
+  border-top: unset;
 }
 
 .navbar-toggle {
