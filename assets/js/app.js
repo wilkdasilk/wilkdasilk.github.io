@@ -169,6 +169,69 @@ function onError(res) {
 $(document).ready(function(){
   $('body').fadeIn(800)
   $('.parallax').parallax();
+  var $solid = $('.solidback');
+  var $profileWrapper = $('.profile-wrapper');
+  var $window = $(window);
+  var $headerRight = $('.header-right');
+  var $textRight = $('.text-right');
+  var $navContainer = $('.nav-container');
+  var $main = $('main');
+  var $heading = $('.heading');
+  //size everything before first scroll incase of load offset
+  if ($window.scrollTop() <= 225 - 56) {
+    console.log($window.scrollTop());
+    $solid.css("height", function(){
+      return 225 - $window.scrollTop();
+    });
+    $profileWrapper.css("height", function(){
+      return 225 - 56 - $window.scrollTop();
+    });
+    $headerRight.css("height", function(){
+      return 225 - 56 - $window.scrollTop();
+    });
+  }
+  if ($window.scrollTop() >= 90) {
+    $headerRight.addClass("scrolled");
+    $textRight.addClass("scrolled");
+    $navContainer.addClass("scrolled");
+  } else {
+    $headerRight.removeClass("scrolled");
+    $textRight.removeClass("scrolled");
+    $navContainer.removeClass("scrolled");
+  }
+  //on scroll
+  $window.on('scroll', function(){
+    if ($window.scrollTop() <= 225 - 56 && $window.scrollTop() <90) {
+      console.log($window.scrollTop());
+      $solid.css("height", function(){
+        return 225 - $window.scrollTop();
+      });
+      $profileWrapper.css("height", function(){
+        return 225 - 56 - $window.scrollTop();
+      });
+      $headerRight.css("height", function(){
+        return 225 - 56 - $window.scrollTop();
+      });
+    }
+    if ($window.scrollTop() >= 90) {
+      $headerRight.addClass("scrolled");
+      $textRight.addClass("scrolled");
+      $navContainer.addClass("scrolled");
+      $solid.css("height", 56);
+      $profileWrapper.css("height", 56);
+      $headerRight.css("height", 56);
+      $main.addClass("scrolled");
+      $heading.addClass("fixed-pin");
+    } else {
+      $headerRight.removeClass("scrolled");
+      $textRight.removeClass("scrolled");
+      $navContainer.removeClass("scrolled");
+      $main.removeClass("scrolled");
+      $heading.removeClass("fixed-pin");
+
+
+    }
+  });
 });
 
 // $('.projects-nav').on('click', 'a', function(event){

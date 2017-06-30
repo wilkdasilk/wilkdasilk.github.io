@@ -54,6 +54,11 @@ header {
   }
 }
 
+main.scrolled {
+  top:0;
+  padding-top: calc(56px + 47px + 90px - 8px);
+}
+
 @media (min-width: 992px) {
   img.preview, section {
     min-height: 250px;
@@ -61,12 +66,61 @@ header {
     }
 }
 
+@media (min-width: 768px) {
+  main.scrolled {
+    padding-top: calc(56px + 47px + 90px - 8px + 44px);
+  }
+  .nav-container.scrolled {
+    top:-1px !important;
+    background: black;
+    z-index: 100;
+  }
+  .fixed-pin {
+    top: calc(56px + 43px) !important;
+  }
+}
+
 .header-right {
   float: right;
   clear:right;
   padding-left:0px;
   height: calc(225px - 56px);
+  min-height: 56px;
 }
+
+.heading {
+  height:47px;
+}
+
+.header-right.scrolled {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+}
+
+h1.text-right.scrolled, h2.text-right.scrolled {
+  display: inline-block;
+  height: 100%;
+  margin:0;
+  padding: 15px 0;
+}
+
+h1.text-right.scrolled{
+  font-size: 25px;
+}
+
+h2.text-right.scrolled {
+  font-size: 15px;
+}
+
+.nav-container.scrolled {
+  top: -57px;
+}
+
+.navbar-collapse:before {
+  height: 0;
+}
+
 h1 {
   margin-bottom:10px;
   font-size: 36px;
@@ -96,17 +150,16 @@ h5 {
 
 .profile-wrapper {
   height: calc(225px - 56px);
+  padding: 5px;
   width: 100%;
+  min-height: 56px;
+  position: absolute;
 }
 
 .profile {
-  top: 15px;
-  max-width: 30vw;
-  min-width: 100px;
-  width: 135px;
+  height: calc(100% - 10px);
   border-radius: 10px;
   position: absolute;
-  ;
 }
 
 .nav-container {
@@ -156,6 +209,9 @@ nav a, .project a {
 main {
   margin-bottom: 0;
   text-align: center;
+  position: relative;
+  top: 225px;
+  padding-bottom: calc(56px + 37px);
 }
 
 section {
@@ -240,9 +296,11 @@ footer {
 }
 
 .row.projects {
-  margin: 10px auto;
   background-color:black;
+}
 
+main .row {
+  margin: 0;
 }
 
 .projects div:not(.parallax, .parallax-container) {
@@ -299,4 +357,19 @@ footer {
 
 .row.projects > :nth-child(2n+0) {
   background-color:white;
+}
+
+.fixed-pin {
+  position: fixed;
+  top: 56px;
+  background: white;
+  z-index:99;
+  width: 100%;
+  box-shadow: 0 0 5px black;
+}
+
+.sticky-top {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
