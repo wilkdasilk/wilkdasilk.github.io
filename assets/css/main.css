@@ -57,7 +57,7 @@ header {
 
 main.scrolled {
   top:0;
-  padding-top: calc(56px + 47px + 90px - 8px);
+  padding-top: calc(56px + 90px - 8px);
 }
 
 @media (min-width: 992px) {
@@ -91,7 +91,7 @@ main.scrolled {
     width: 100%
   }
   main.scrolled {
-    padding-top: calc(56px + 47px + 90px + 44px);
+    padding-top: calc(56px + 90px + 44px);
   }
   .nav-container.scrolled {
     top:-2px !important;
@@ -109,6 +109,10 @@ main.scrolled {
   padding-left:0px;
   height: calc(225px - 56px);
   min-height: 56px;
+}
+
+.heading-wrapper {
+  height:47px;
 }
 
 .heading {
