@@ -98,7 +98,7 @@ main.scrolled {
     background: black;
     z-index: 100;
   }
-  .fixed-pin {
+  .fixed-pin .heading {
     top: calc(56px + 43px) !important;
   }
 }
@@ -113,6 +113,10 @@ main.scrolled {
 
 .heading {
   height:47px;
+  z-index: 101;
+  width: 100%;
+  background: white;
+  position: relative;
 }
 
 .header-right.scrolled {
@@ -384,12 +388,10 @@ main .row {
   background-color:white;
 }
 
-.fixed-pin {
+.fixed-pin .heading {
   position: fixed;
   top: 56px;
-  background: white;
   z-index:100;
-  width: 100%;
   box-shadow: 0 0 5px black;
 }
 
@@ -399,6 +401,18 @@ main .row {
   z-index: 100;
 }
 
-.skills {
+.skills p {
     font-size: 17px;
+}
+
+.skills {
+  padding-top:20px;
+}
+#profile img {
+  height:220px;
+  border-radius: 10px;
+}
+
+#profile .card {
+  padding: 20px;
 }

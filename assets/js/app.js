@@ -176,44 +176,13 @@ $(document).ready(function(){
   var $textRight = $('.text-right');
   var $navContainer = $('.nav-container');
   var $main = $('main');
-  var $heading = $('.heading');
+  var $headingWrapper = $('.heading-wrapper');
   //size everything before first scroll incase of load offset
-  if ($window.scrollTop() < 90) {
-    console.log($window.scrollTop());
-    $solid.css("height", function(){
-      return 225 - $window.scrollTop();
-    });
-    $headerRight.css("height", function(){
-      return 225 - 56 - $window.scrollTop();
-    });
-  }
-  if ($window.scrollTop() >= 90) {
-    $headerRight.addClass("scrolled");
-    $textRight.addClass("scrolled");
-    $navContainer.addClass("scrolled");
-    $solid.css("height", 56);
-    $profileWrapper.css("visibility", "visible");
-    $headerRight.css("height", 56);
-    $main.addClass("scrolled");
-    $heading.addClass("fixed-pin");
-    if ($window.scrollTop() >= 225 + 90) {
-      $profileWrapper.css("top", 0);
-    } else {
-      $profileWrapper.css("top", function(){
-        return 50 - ($window.scrollTop()-90)/4.5;
-      });
-    }
-  } else {
-    $headerRight.removeClass("scrolled");
-    $textRight.removeClass("scrolled");
-    $navContainer.removeClass("scrolled");
-    $main.removeClass("scrolled");
-    $heading.removeClass("fixed-pin");
-    $profileWrapper.css("visibility", "hidden");
-  }
+
+    //copy paste initial set when style finalized
+
   //on scroll
   $window.on('scroll', function(){
-    console.log($window.scrollTop());
     if ($window.scrollTop() <90) {
       $solid.css("height", function(){
         return 225 - $window.scrollTop();
@@ -230,12 +199,36 @@ $(document).ready(function(){
       $profileWrapper.css("visibility", "visible");
       $headerRight.css("height", 56);
       $main.addClass("scrolled");
-      $heading.addClass("fixed-pin");
-      if ($window.scrollTop() >= 225 + 90) {
+      if ($window.innerWidth() < 768) {
+        $headingWrapper.each(function(i, heading) {
+          if (i == 0) {
+            $(heading).addClass("fixed-pin");
+          } else if ($window.scrollTop() + 56 >= $(heading).position().top) {
+            $(heading).addClass("fixed-pin");
+          } else {
+            $(heading).removeClass("fixed-pin");
+          }
+        });
+      } else {
+        if ($window.scrollTop() >= 90){
+          $headingWrapper.each(function(i, heading) {
+            if (i == 0) {
+              $(heading).addClass("fixed-pin");
+            } else if ($window.scrollTop() + 56 + 43>= $(heading).position().top) {
+              $(heading).addClass("fixed-pin");
+            } else {
+              $(heading).removeClass("fixed-pin");
+            }
+          });
+        }
+
+      }
+
+      if ($window.scrollTop() >= 225 + 90 + 20) {
         $profileWrapper.css("top", 0);
       } else {
         $profileWrapper.css("top", function(){
-          return 50 - ($window.scrollTop()-90)/4.5;
+          return 50 - ($window.scrollTop()-90 - 20)/4.5;
         });
       }
     } else {
@@ -243,7 +236,7 @@ $(document).ready(function(){
       $textRight.removeClass("scrolled");
       $navContainer.removeClass("scrolled");
       $main.removeClass("scrolled");
-      $heading.removeClass("fixed-pin");
+      $headingWrapper.removeClass("fixed-pin");
       $profileWrapper.css("visibility", "hidden");
     }
   });
