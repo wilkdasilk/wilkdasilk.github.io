@@ -405,7 +405,7 @@ main .row {
   z-index: 100;
 }
 
-.skills p {
+.skills p, #aboutme p {
     font-size: 17px;
 }
 
@@ -417,6 +417,6 @@ main .row {
   border-radius: 10px;
 }
 
-#profile .card {
+#profile .card, #aboutme {
   padding: 20px;
 }

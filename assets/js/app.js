@@ -30,7 +30,6 @@ var projectCount = 0;
 //json for projects
 
 var imageLinks = [
-  "assets/imgs/downtown-la.jpg",
   "assets/imgs/angel-city-brewery.jpg",
   "assets/imgs/pasadena-hike.jpg",
   "assets/imgs/grand-central-market.jpg",
