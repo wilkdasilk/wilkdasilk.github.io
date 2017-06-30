@@ -178,13 +178,10 @@ $(document).ready(function(){
   var $main = $('main');
   var $heading = $('.heading');
   //size everything before first scroll incase of load offset
-  if ($window.scrollTop() <= 225 - 56) {
+  if ($window.scrollTop() < 90) {
     console.log($window.scrollTop());
     $solid.css("height", function(){
       return 225 - $window.scrollTop();
-    });
-    $profileWrapper.css("height", function(){
-      return 225 - 56 - $window.scrollTop();
     });
     $headerRight.css("height", function(){
       return 225 - 56 - $window.scrollTop();
@@ -194,20 +191,32 @@ $(document).ready(function(){
     $headerRight.addClass("scrolled");
     $textRight.addClass("scrolled");
     $navContainer.addClass("scrolled");
+    $solid.css("height", 56);
+    $profileWrapper.css("visibility", "visible");
+    $headerRight.css("height", 56);
+    $main.addClass("scrolled");
+    $heading.addClass("fixed-pin");
+    if ($window.scrollTop() >= 225 + 90) {
+      $profileWrapper.css("top", 0);
+    } else {
+      $profileWrapper.css("top", function(){
+        return 50 - ($window.scrollTop()-90)/4.5;
+      });
+    }
   } else {
     $headerRight.removeClass("scrolled");
     $textRight.removeClass("scrolled");
     $navContainer.removeClass("scrolled");
+    $main.removeClass("scrolled");
+    $heading.removeClass("fixed-pin");
+    $profileWrapper.css("visibility", "hidden");
   }
   //on scroll
   $window.on('scroll', function(){
-    if ($window.scrollTop() <= 225 - 56 && $window.scrollTop() <90) {
-      console.log($window.scrollTop());
+    console.log($window.scrollTop());
+    if ($window.scrollTop() <90) {
       $solid.css("height", function(){
         return 225 - $window.scrollTop();
-      });
-      $profileWrapper.css("height", function(){
-        return 225 - 56 - $window.scrollTop();
       });
       $headerRight.css("height", function(){
         return 225 - 56 - $window.scrollTop();
@@ -218,18 +227,24 @@ $(document).ready(function(){
       $textRight.addClass("scrolled");
       $navContainer.addClass("scrolled");
       $solid.css("height", 56);
-      $profileWrapper.css("height", 56);
+      $profileWrapper.css("visibility", "visible");
       $headerRight.css("height", 56);
       $main.addClass("scrolled");
       $heading.addClass("fixed-pin");
+      if ($window.scrollTop() >= 225 + 90) {
+        $profileWrapper.css("top", 0);
+      } else {
+        $profileWrapper.css("top", function(){
+          return 50 - ($window.scrollTop()-90)/4.5;
+        });
+      }
     } else {
       $headerRight.removeClass("scrolled");
       $textRight.removeClass("scrolled");
       $navContainer.removeClass("scrolled");
       $main.removeClass("scrolled");
       $heading.removeClass("fixed-pin");
-
-
+      $profileWrapper.css("visibility", "hidden");
     }
   });
 });
