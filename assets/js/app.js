@@ -34,7 +34,7 @@ var imageLinks = [
   "assets/imgs/pasadena-hike.jpg",
   "assets/imgs/grand-central-market.jpg",
   "assets/imgs/santa-monica-pier.jpg",
-  "assets/imgs/mixing-board.jpg"
+  "assets/imgs/griffith.jpg"
 ]
 
 var data = [
@@ -43,35 +43,40 @@ var data = [
     link: "https://github.com/wilkdasilk/MiddleEarthCreatureQuiz",
     live: "https://desolate-wave-59412.herokuapp.com/",
     name: "MiddleEarthCreatureQuiz",
-    picture: "https://raw.githubusercontent.com/wilkdasilk/MiddleEarthCreatureQuiz/master/app/assets/images/preview/creaturequiz-preview.png"
+    picture: "https://raw.githubusercontent.com/wilkdasilk/MiddleEarthCreatureQuiz/master/app/assets/images/preview/creaturequiz-preview.png",
+    tools: "MongoDB, Express, Node, jQuery, Mongoose, Bootstrap, Lodash"
   },
   {
     description: "A travel community for users to share city specific tips about their favorite locations around the world ",
     link: "https://github.com/wilkdasilk/vagabond",
     live: "http://levagabond.herokuapp.com/",
     name: "vagabond",
-    picture: "https://raw.githubusercontent.com/wilkdasilk/vagabond/master/app/assets/images/preview/levagabond-preview.png"
+    picture: "https://raw.githubusercontent.com/wilkdasilk/vagabond/master/app/assets/images/preview/levagabond-preview.png",
+    tools: "Ruby on Rails, PostgreSQL, Bootstrap, Bcrypt, Paperclip"
   },
   {
     description: "An attempt to make the world a better place by providing people with cool activities to do",
     link: "https://github.com/wilkdasilk/actividay",
     live: "http://actividay.herokuapp.com/",
     name: "actividay",
-    picture: "https://raw.githubusercontent.com/wilkdasilk/actividay/master/app/assets/images/preview/actividay-preview.png"
+    picture: "https://raw.githubusercontent.com/wilkdasilk/actividay/master/app/assets/images/preview/actividay-preview.png",
+    tools: "Ruby on Rails, PostgreSQL, Foundation, SASS, Devise, FriendlyID, CarrierWave"
   },
   {
     description: "Curate crowdsourced playlists around a geolocation",
     link: "https://github.com/wilkdasilk/NoiseFlag",
     live: "http://noiseflag.herokuapp.com/",
     name: "NoiseFlag",
-    picture: "https://raw.githubusercontent.com/wilkdasilk/NoiseFlag/master/app/assets/images/preview/Noiseflag_preview.png"
+    picture: "https://raw.githubusercontent.com/wilkdasilk/NoiseFlag/master/app/assets/images/preview/Noiseflag_preview.png",
+    tools: "Ruby on Rails, PostgreSQL, Geocoder, Google Static Maps, Searchkick, Bootstrap, SASS, HTTParty, CarrierWave"
   },
   {
     description: "Chat and streaming app for podcasters, enabling early feedback from subscribers via live listening",
     link: "https://github.com/wilkdasilk/PodBooth",
     live: "https://podbooth.herokuapp.com/",
     name: "PodBooth",
-    picture: "https://raw.githubusercontent.com/wilkdasilk/PodBooth/master/app/assets/images/preview/podbooth_preview.png"
+    picture: "https://raw.githubusercontent.com/wilkdasilk/PodBooth/master/app/assets/images/preview/podbooth_preview.png",
+    tools: "Angular, MongoDB, Express, Node, Mongoose, Socket.io, Web Audio API, Materialize, Passport, Express-JWT, Ng-File-Upload"
   }
 ];
 
@@ -97,10 +102,8 @@ function appendLinks() {
 function appendProject(project) {
   $('.projects').append(`
     <div class="">
-      <div class="parallax-container">
-        <div class="parallax"><img src="${imageLinks[projectCount]}"></div>
-      </div>
       <div class="project-details">
+        <h4>${project.name.titleize()}</h3>
         <div class="container">
           <div class='col-lg-6 col-md-6 col-sm-12 col-md-xs-12'>
             <img src='${project.picture}' class='preview'>
@@ -108,16 +111,22 @@ function appendProject(project) {
           <div class='col-lg-6 col-md-6 col-sm-12 col-md-xs-12'>
             <section>
               <div class='project'>
-                <h4>${project.name.titleize()}</h3>
-                <p>${project.description}</p>
-                <div class="project-links">
-                  <a href='${project.link}' target='_blank'>Repo</a>
-                  <a href='${project.live}' target='_blank'>Live</a>
-                </div>
+                <h5>Built with</h5>
+                <p>${project.tools} <nobr>... and ♥</nobr></p>
               </div>
             </section>
           </div>
         </div>
+        <div class="project-description">
+          <p>${project.description}</p>
+        </div>
+        <div class="project-links">
+          <a href='${project.link}' target='_blank'>Repo</a>
+          <a href='${project.live}' target='_blank'>Live</a>
+        </div>
+        </div>
+      <div class="parallax-container">
+        <div class="parallax"><img src="${imageLinks[projectCount]}"></div>
       </div>
     </div>`
   );

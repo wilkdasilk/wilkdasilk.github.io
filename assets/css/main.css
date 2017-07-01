@@ -67,6 +67,12 @@ main.scrolled {
     }
 }
 
+@media (max-width:850px) {
+  .project-details .container {
+    width: unset;
+  }
+}
+
 @media (max-width: 485px) {
   h1.text-right {
     font-size: 20px;
@@ -82,6 +88,14 @@ main.scrolled {
 
   h2.text-right.scrolled {
     font-size: 10px !important;
+  }
+
+  .project-details {
+    padding: 10px !important;
+  }
+
+  .project p {
+    padding: 0 !important;
   }
 
 }
@@ -179,6 +193,11 @@ h5 {
   font-size: 22px;
 }
 
+.project-details h4 {
+  font-size: 2em;
+  padding-bottom: 20px;
+}
+
 .profile-wrapper {
   height: 56px;
   padding: 5px;
@@ -226,12 +245,12 @@ div.in .nav>li, div.collapsing .nav>li {
   background: black;
 }
 
-nav a, .project a {
+nav a, .project-links a {
   font-size: 1.2em;
   padding: 10px 15px;
 }
 
-.nav>li>a:hover, .nav>li>a:hover:focus, .project a {
+.nav>li>a:hover, .nav>li>a:hover:focus, .project-links a {
   background:rgb(0,150,255);
 }
 
@@ -322,14 +341,16 @@ footer {
 .project-links {
   padding:30px 0;
   height: 42px;
-  bottom: 10px;
+  bottom: 20px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .row.projects {
-  background-color:black;
+  background-color:white;
+  color: black;
+
 }
 
 main .row {
@@ -344,7 +365,6 @@ main .row {
 
 .project {
   padding:3%;
-  min-height: 250px;
 }
 
 .project p {
@@ -386,10 +406,15 @@ main .row {
 .project-details {
   min-height: 700px;
   padding: 50px;
+  position: relative;
+}
+
+.project-description {
+  padding: 20px;
 }
 
 .row.projects > :nth-child(2n+0) {
-  background-color:white;
+  /* if I decide to alternate styles again */
 }
 
 .fixed-pin .heading {
@@ -405,7 +430,7 @@ main .row {
   z-index: 100;
 }
 
-.skills p, #aboutme p {
+.skills p, #aboutme p , .project p {
     font-size: 17px;
 }
 
