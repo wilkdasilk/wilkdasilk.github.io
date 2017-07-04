@@ -44,7 +44,8 @@ var data = [
     live: "https://desolate-wave-59412.herokuapp.com/",
     name: "MiddleEarthCreatureQuiz",
     picture: "https://raw.githubusercontent.com/wilkdasilk/MiddleEarthCreatureQuiz/master/app/assets/images/preview/creaturequiz-preview.png",
-    tools: "MongoDB, Express, Node, jQuery, Mongoose, Bootstrap, Lodash"
+    tools: "MongoDB, Express, Node, jQuery, Mongoose, Bootstrap, Lodash",
+    contributions: "<li>Created method for obscuring question/answer alignment and randomizing presentation</li><li>Implemented madlib with user answers inserted client-side</li>"
   },
   {
     description: "A travel community for users to share city specific tips about their favorite locations around the world ",
@@ -52,7 +53,8 @@ var data = [
     live: "http://levagabond.herokuapp.com/",
     name: "vagabond",
     picture: "https://raw.githubusercontent.com/wilkdasilk/vagabond/master/app/assets/images/preview/levagabond-preview.png",
-    tools: "Ruby on Rails, PostgreSQL, Bootstrap, Bcrypt, Paperclip"
+    tools: "Ruby on Rails, PostgreSQL, Bootstrap, Bcrypt, Paperclip",
+    contributions: "<li>Implemented user authorization for CRUD actions using before hooks and SQL queries via ActiveRecord</li><li>Coordinating with UX advisors to ensure optimal user experience across range of devices</li>"
   },
   {
     description: "An attempt to make the world a better place by providing people with cool activities to do",
@@ -60,7 +62,8 @@ var data = [
     live: "http://actividay.herokuapp.com/",
     name: "actividay",
     picture: "https://raw.githubusercontent.com/wilkdasilk/actividay/master/app/assets/images/preview/actividay-preview.png",
-    tools: "Ruby on Rails, PostgreSQL, Foundation, SASS, Devise, FriendlyID, CarrierWave"
+    tools: "Ruby on Rails, PostgreSQL, Foundation, SASS, Devise, FriendlyID, CarrierWave",
+    contributions: "<li>Implemented responsive & mobile-first design via Bootstrap</li><li>Refactored for DRY, maintainable code using shared partials with conditional views</li>"
   },
   {
     description: "Curate crowdsourced playlists around a geolocation",
@@ -68,7 +71,8 @@ var data = [
     live: "http://noiseflag.herokuapp.com/",
     name: "NoiseFlag",
     picture: "https://raw.githubusercontent.com/wilkdasilk/NoiseFlag/master/app/assets/images/preview/Noiseflag_preview.png",
-    tools: "Ruby on Rails, PostgreSQL, Geocoder, Google Static Maps, Searchkick, Bootstrap, SASS, HTTParty, CarrierWave"
+    tools: "Ruby on Rails, PostgreSQL, Geocoder, Google Static Maps, Spotify API, Searchkick, Bootstrap, SASS, HTTParty, CarrierWave",
+    contributions:"<li>Implemented track search feature, including JSON endpoint returning Searchkick results, or if none, proxy to Spotify API using HTTParty</li><li>Implemented check-in feature, requesting user’s location via HTML5 Geolocation, or if unavailable, via IP address, and confirming proximity to flag location via Geocoder gem</li>"
   },
   {
     description: "Chat and streaming app for podcasters, enabling early feedback from subscribers via live listening",
@@ -76,7 +80,8 @@ var data = [
     live: "https://podbooth.herokuapp.com/",
     name: "PodBooth",
     picture: "https://raw.githubusercontent.com/wilkdasilk/PodBooth/master/app/assets/images/preview/podbooth_preview.png",
-    tools: "Angular, MongoDB, Express, Node, Mongoose, Socket.io, Web Audio API, Materialize, Passport, Express-JWT, Ng-File-Upload"
+    tools: "Angular, MongoDB, Express, Node, Mongoose, Socket.io, Web Audio API, Materialize, Passport, Express-JWT, Ng-File-Upload",
+    contributions: "<li>Implemented audio streaming feature, requesting access to user’s microphone, transmitting recorded chunks, and syncing playback via audio buffer</li><li>Implemented chat feature, including live-updated commenting and upvoting via Socket.io</li>"
   }
 ];
 
@@ -103,7 +108,10 @@ function appendProject(project) {
   $('.projects').append(`
     <div class="">
       <div class="project-details">
-        <h4>${project.name.titleize()}</h3>
+        <h4>${project.name.titleize()}</h4>
+        <div class="project-description">
+          <p>${project.description}</p>
+        </div>
         <div class="container">
           <div class='col-lg-6 col-md-6 col-sm-12 col-md-xs-12'>
             <img src='${project.picture}' class='preview'>
@@ -117,8 +125,11 @@ function appendProject(project) {
             </section>
           </div>
         </div>
-        <div class="project-description">
-          <p>${project.description}</p>
+        <div class="project-contributions">
+          <h5>Key Contributions</h5>
+          <ul>
+            ${project.contributions}
+          </ul>
         </div>
         <div class="project-links">
           <a href='${project.link}' target='_blank'>Repo</a>

@@ -115,6 +115,10 @@ main.scrolled {
   .fixed-pin .heading {
     top: calc(56px + 43px) !important;
   }
+
+  .project-contributions ul {
+    margin-left: 50px !important;
+  }
 }
 
 .header-right {
@@ -195,7 +199,6 @@ h5 {
 
 .project-details h4 {
   font-size: 2em;
-  padding-bottom: 20px;
 }
 
 .profile-wrapper {
@@ -404,7 +407,6 @@ main .row {
 }
 
 .project-details {
-  min-height: 700px;
   padding: 50px;
   position: relative;
 }
@@ -444,4 +446,24 @@ main .row {
 
 #profile .card, #aboutme {
   padding: 20px;
+}
+
+.project-contributions h5 {
+  text-align: left;
+  padding: 10px 0;
+}
+
+.project-contributions ul {
+  list-style: square outside url('data:image/gif;base64,R0lGODlhBQAKAIABAAAAAP///yH5BAEAAAEALAAAAAAFAAoAAAIIjI+ZwKwPUQEAOw==');
+  margin-left: 0;
+  padding-bottom: calc(42px + 10px);
+}
+
+.project-contributions ul li {
+  padding: 5px 0;
+}
+
+.project-details .container {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
