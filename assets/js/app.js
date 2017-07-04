@@ -39,7 +39,7 @@ var imageLinks = [
 
 var data = [
   {
-    description: "What kind of creature are you? Idk, better take a quiz. Single-page app, no framework.",
+    description: "What kind of creature are you? Idk, better take a quiz. Single-page app using jQuery",
     link: "https://github.com/wilkdasilk/MiddleEarthCreatureQuiz",
     live: "https://desolate-wave-59412.herokuapp.com/",
     name: "MiddleEarthCreatureQuiz",
@@ -98,15 +98,16 @@ appendProject(data[0]);
 function appendLinks() {
   console.log("appending links");
   //append project data
-  for (var i=0;i<data.length;i++) {
+  for (var i=data.length-1;i>=0;i--) {
     currentProject=data[i];
-    appendLink(currentProject, i);
+    appendLink(currentProject);
   };
 }
 
+
 function appendProject(project) {
   $('.projects').append(`
-    <div class="">
+    <div id="${project.name}" class="faded-out">
       <div class="project-details">
         <h4>${project.name.titleize()}</h4>
         <div class="project-description">
@@ -144,10 +145,10 @@ function appendProject(project) {
   projectCount++;
 }
 
-function appendLink(currentProject, index) {
-  $('.projects-nav').append(`
-    <li role='presentation'>
-      <a href='#' data-index='${index}'>${currentProject.name.titleize()}</a>
+function appendLink(currentProject) {
+  $('#myprojectsdropdown').append(`
+    <li>
+      <a href='#${currentProject.name}'>${currentProject.name.titleize()}</a>
     </li>
     `);
 }
@@ -188,20 +189,52 @@ function onError(res) {
 $(document).ready(function(){
   $('body').fadeIn(800)
   $('.parallax').parallax();
+  var $window = $(window);
+  $('.projects-nav .dropdown').hover(function() {
+        if ($window.innerWidth() > 768) {
+          $(this).find('.dropdown-menu').first().stop(true, true).delay(250).slideDown();
+        }
+      }, function() {
+        if ($window.innerWidth() >768) {
+          $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideUp();
+        }
+  });
   var $solid = $('.solidback');
   var $profileWrapper = $('.profile-wrapper');
-  var $window = $(window);
   var $headerRight = $('.header-right');
   var $textRight = $('.text-right');
   var $navContainer = $('.nav-container');
   var $main = $('main');
   var $headingWrapper = $('.heading-wrapper');
-  //size everything before first scroll incase of load offset
+  var $fadedOut = $('.faded-out');
 
-    //copy paste initial set when style finalized
+  function handleAnchorScroll(scope) {
+    var offset;
+    var headerHeight = $headerRight.height();
+    //scroll offset based on screen size/header height requirements
+    if ($window.innerWidth() < 768) {
+      //fix for if header isn't scrolled completely
+      if (headerHeight > 56) {
+        offset = headerHeight - 56 + 47 + 24;
+      } else {
+        offset = 56 + 47;
+      }
+    } else {
+      if (headerHeight > 56) {
+        offset = headerHeight - 56 + 43 + 24;
+      } else {
+        offset = 56 + 43 + 47;
+      }
+    }
+    var anchor = $(scope).attr('href');
+    var scrollAmount = $(anchor).offset().top - offset;
+    if (scrollAmount <= 90){
+      scrollAmount = 90;
+    }
+    $('html,body').animate({scrollTop: scrollAmount}, 'slow');
+  }
 
-  //on scroll
-  $window.on('scroll', function(){
+  function handleUserScroll() {
     if ($window.scrollTop() <90) {
       $solid.css("height", function(){
         return 225 - $window.scrollTop();
@@ -210,6 +243,13 @@ $(document).ready(function(){
         return 225 - 56 - $window.scrollTop();
       });
     }
+    $fadedOut.each(function(i, project){
+      var $project = $(project);
+      if ($window.scrollTop() + $window.innerHeight() > $project.position().top) {
+        $project.removeClass("faded-out");
+        $project.addClass("faded-in");
+      }
+    });
     if ($window.scrollTop() >= 90) {
       $headerRight.addClass("scrolled");
       $textRight.addClass("scrolled");
@@ -240,7 +280,6 @@ $(document).ready(function(){
             }
           });
         }
-
       }
 
       if ($window.scrollTop() >= 225 + 90 + 20) {
@@ -258,21 +297,31 @@ $(document).ready(function(){
       $headingWrapper.removeClass("fixed-pin");
       $profileWrapper.css("visibility", "hidden");
     }
+  }
+  //onload initialize style for page position
+  handleUserScroll();
+
+  //do the same on scroll
+  $window.on('scroll', function(){
+    handleUserScroll();
   });
-});
 
-// $('.projects-nav').on('click', 'a', function(event){
-//   if (  showProjectIndex != $(this).attr('data-index') ) {
-//     showProjectIndex = $(this).attr('data-index');
-//     $('.projects-wrapper').children().fadeOut(100, function (){
-//       $('.projects-wrapper').children().fadeIn(800);
-//     showProject(data[showProjectIndex]);
-//     });
-//   }
-// });
+  $('.projects-nav').on('click', 'a', function(e){
+    e.preventDefault();
+    handleAnchorScroll(this);
+    $('.navbar-collapse').collapse('hide');
+  });
 
-$(window).resize(function(){
- if ($(window).width()>767) {
-  $('.navbar-collapse').removeClass('in');
- }
+  $('.projects-nav .dropdown > a').click(function(e){
+    e.preventDefault();
+    handleAnchorScroll(this);
+    $('.navbar-collapse').collapse('hide');
+  });
+
+  $(window).resize(function(){
+   if ($(window).width()>767) {
+    $('.navbar-collapse').removeClass('in');
+   }
+  });
+
 });

@@ -108,7 +108,7 @@ main.scrolled {
     padding-top: calc(56px + 90px + 44px);
   }
   .nav-container.scrolled {
-    top:-2px !important;
+    top:0px !important;
     background: black;
     z-index: 100;
   }
@@ -116,8 +116,48 @@ main.scrolled {
     top: calc(56px + 43px) !important;
   }
 
+  ul.nav li.dropdown:hover > ul.dropdown-menu, ul.dropdown-menu:hover {
+    z-index: 999;
+  }
+
+  ul .dropdown-menu {
+    margin-top: 0;
+    border: 3px solid white;
+  }
+
+  ul.dropdown-menu li {
+    position: relative;
+    z-index: inherit;
+    display: block;
+  }
+
   .project-contributions ul {
     margin-left: 50px !important;
+  }
+}
+@media (max-width: 767px) {
+  ul .dropdown-menu {
+    display: block !important;
+    width: 100%;
+  }
+
+  .navbar-collapse.in {
+    overflow: visible;
+  }
+
+  .projects-nav.nav li.dropdown {
+    display: inline-block;
+    width: 100%;
+  }
+
+  ul.dropdown-menu {
+    margin: 0;
+    border: none;
+    position: relative;
+  }
+
+  span.caret {
+    display: none;
   }
 }
 
@@ -135,7 +175,7 @@ main.scrolled {
 
 .heading {
   height:47px;
-  z-index: 101;
+  z-index: 99;
   width: 100%;
   background: white;
   position: relative;
@@ -234,7 +274,7 @@ h5 {
   color:white;
 }
 
-a, a:hover, nav a, nav a:visited, nav a:hover {
+a, a:hover, a:focus, nav a, nav a:visited, nav a:hover, nav a:focus, #myprojectsdropdown li a:hover, #myprojectsdropdown li a:focus {
   text-decoration: none;
   color:white;
 }
@@ -243,17 +283,17 @@ a, a:hover, nav a, nav a:visited, nav a:hover {
   display: inline-block;
 }
 
-div.in .nav>li, div.collapsing .nav>li {
+div.in .nav>li, div.collapsing .nav>li, div.collapsing .nav>li>a:focus , #myprojectsdropdown li, #myprojectsdropdown li>a:focus {
   display: block;
   background: black;
 }
 
-nav a, .project-links a {
+nav a, .project-links a, #myprojectsdropdown li a {
   font-size: 1.2em;
   padding: 10px 15px;
 }
 
-.nav>li>a:hover, .nav>li>a:hover:focus, .project-links a {
+.nav>li>a:hover, .nav>li>a:hover:focus, .project-links a, #myprojectsdropdown>li>a:hover, #myprojectsdropdown>li>a:hover:focus  {
   background:rgb(0,150,255);
 }
 
@@ -266,7 +306,6 @@ main {
   text-align: center;
   position: relative;
   top: 225px;
-  padding-bottom: calc(56px + 37px);
 }
 
 section {
@@ -422,7 +461,6 @@ main .row {
 .fixed-pin .heading {
   position: fixed;
   top: 56px;
-  z-index:100;
   box-shadow: 0 0 5px black;
 }
 
@@ -466,4 +504,28 @@ main .row {
 .project-details .container {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.profile-placeholder {
+  height: 56px;
+  position: absolute;
+  overflow: hidden;
+}
+
+ul.dropdown-menu {
+  padding:0;
+  text-align: center;
+}
+
+.faded-out {
+  opacity: 0;
+}
+
+.faded-in {
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
+
+.header ul {
+  background: black;
 }
