@@ -507,7 +507,7 @@ main .row {
 .project-contributions ul {
   list-style: none;
   padding-left: 0;
-  margin-left: 0;
+  margin-left: 0 !important;
   padding-bottom: calc(42px + 10px);
 }
 
