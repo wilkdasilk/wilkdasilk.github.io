@@ -6,7 +6,7 @@ html::-webkit-scrollbar {
 body {
   background-color:white;
   font-family: 'Source Sans Pro', sans-serif;
-  min-width: 320px;
+  min-width: 330px;
 }
 p {
   font-size: 1.1em;
@@ -21,33 +21,16 @@ header {
   opacity:1;
   z-index: 10;
   padding:0;
-}
-.top {
-  height:225px;
+  min-width: 330px;
 }
 .fixed {
   position:relative;
-  left:0;
-}
-
-.backgroundimg {
-  width:100%;
-  background-repeat:no-repeat;
-  opacity: .8;
-  object-fit: cover;
-  position:absolute;
-  bottom:0;
-  min-height:225px;
-  max-height: 525px;
-
 }
 
 .solidback {
   position:absolute;
   top:0;
-  background-color: rgb(0,150,255);
-  opacity: 1;
-  z-index: 10;
+  background-color: black;
   width:100%;
   min-width: 320px;
   left:0;
@@ -72,6 +55,11 @@ header {
   }
 }
 
+main.scrolled {
+  top:0;
+  padding-top: calc(56px + 90px - 8px);
+}
+
 @media (min-width: 992px) {
   img.preview, section {
     min-height: 250px;
@@ -79,11 +67,164 @@ header {
     }
 }
 
+@media (max-width:850px) {
+  .project-details .container {
+    width: unset;
+  }
+}
+
+@media (max-width: 485px) {
+  h1.text-right {
+    font-size: 20px;
+  }
+
+  h2.text-right {
+    font-size: 15px;
+  }
+
+  h1.text-right.scrolled {
+    font-size: 15px !important;
+  }
+
+  h2.text-right.scrolled {
+    font-size: 10px !important;
+  }
+
+  .project-details {
+    padding: 10px !important;
+  }
+
+  .project p {
+    padding: 0 !important;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .header-right {
+    width: 100%
+  }
+  main.scrolled {
+    padding-top: calc(56px + 90px + 44px);
+  }
+  .nav-container.scrolled {
+    top:0px !important;
+    background: black;
+    z-index: 100;
+  }
+  .fixed-pin .heading {
+    top: calc(56px + 43px) !important;
+  }
+
+  ul.nav li.dropdown:hover > ul.dropdown-menu, ul.dropdown-menu:hover {
+    z-index: 999;
+  }
+
+  ul .dropdown-menu {
+    margin-top: 0;
+    border: 3px solid white;
+  }
+
+  ul.dropdown-menu li {
+    position: relative;
+    z-index: inherit;
+    display: block;
+  }
+
+  .project-contributions ul {
+    margin-left: 50px !important;
+  }
+}
+@media (max-width: 767px) {
+  ul .dropdown-menu {
+    display: block !important;
+    width: 100%;
+  }
+
+  .navbar-collapse.in {
+    overflow: visible;
+  }
+
+  .projects-nav.nav li.dropdown {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .project-contributions h5 {
+    text-align: center !important;
+  }
+
+  .project-contributions ul {
+    list-style: none !important;
+    padding-left: 0;
+  }
+
+  ul.dropdown-menu {
+    margin: 0;
+    border: none;
+    position: relative;
+  }
+
+  span.caret {
+    display: none;
+  }
+
+  .parallax-container {
+    height: 70vh !important;
+    max-height: 70vw;
+    min-height: 200px;
+  }
+}
+
 .header-right {
   float: right;
   clear:right;
   padding-left:0px;
+  height: calc(225px - 56px);
+  min-height: 56px;
 }
+
+.heading-wrapper {
+  height:47px;
+}
+
+.heading {
+  height:47px;
+  z-index: 99;
+  width: 100%;
+  background: white;
+  position: relative;
+}
+
+.header-right.scrolled {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+}
+
+h1.text-right.scrolled, h2.text-right.scrolled {
+  display: inline-block;
+  height: 100%;
+  margin:0;
+  padding: 15px 0;
+}
+
+h1.text-right.scrolled{
+  font-size: 25px;
+}
+
+h2.text-right.scrolled {
+  font-size: 15px;
+}
+
+.nav-container.scrolled {
+  top: -57px;
+}
+
+.navbar-collapse:before {
+  height: 0;
+}
+
 h1 {
   margin-bottom:10px;
   font-size: 36px;
@@ -99,6 +240,8 @@ h3 {
   padding: 10px;
   font-size:1.8em;
   font-weight: 900;
+  margin: 0;
+  text-align: left;
 }
 
 h4 {
@@ -109,39 +252,44 @@ h5 {
   font-size: 22px;
 }
 
+.project-details h4 {
+  font-size: 2em;
+}
+
 .profile-wrapper {
-  height: 100%;
+  height: 56px;
+  padding: 5px;
   width: 100%;
+  min-height: 56px;
+  position: absolute;
+  top:50px;
+  visibility: hidden;
 }
 
 .profile {
-  top: 15px;
-  max-width: 30vw;
-  min-width: 100px;
-  width: 135px;
+  height: calc(100% - 10px);
   border-radius: 10px;
   position: absolute;
-  ;
 }
 
 .nav-container {
+  position: relative;
   text-align: center;
   clear:right;
   padding: 0;
-  top:-62px;
-  z-index: 10;
-  margin: 0 -15px;
+  width: 100%;
 }
 
 .navbar-collapse {
   padding:0;
+  border-top: unset;
 }
 
 .navbar-toggle {
   color:white;
 }
 
-a, a:hover, nav a, nav a:visited, nav a:hover {
+a, a:hover, a:focus, nav a, nav a:visited, nav a:hover, nav a:focus, #myprojectsdropdown li a:hover, #myprojectsdropdown li a:focus {
   text-decoration: none;
   color:white;
 }
@@ -150,17 +298,17 @@ a, a:hover, nav a, nav a:visited, nav a:hover {
   display: inline-block;
 }
 
-div.in .nav>li, div.collapsing .nav>li {
+div.in .nav>li, div.collapsing .nav>li, div.collapsing .nav>li>a:focus , #myprojectsdropdown li, #myprojectsdropdown li>a:focus {
   display: block;
   background: black;
 }
 
-nav a, .project a {
+nav a, .project-links a, #myprojectsdropdown li a {
   font-size: 1.2em;
   padding: 10px 15px;
 }
 
-.nav>li>a:hover, .nav>li>a:hover:focus, .project a {
+.nav>li>a:hover, .nav>li>a:hover:focus, .project-links a, #myprojectsdropdown>li>a:hover, #myprojectsdropdown>li>a:hover:focus  {
   background:rgb(0,150,255);
 }
 
@@ -171,6 +319,8 @@ nav a, .project a {
 main {
   margin-bottom: 0;
   text-align: center;
+  position: relative;
+  top: 225px;
 }
 
 section {
@@ -248,25 +398,149 @@ footer {
 .project-links {
   padding:30px 0;
   height: 42px;
-  bottom: 10px;
+  bottom: 20px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.projects {
-  margin: 10px auto;
+.row.projects {
+  background-color:white;
+  color: black;
+
 }
 
-.projects div {
+main .row {
+  margin: 0;
+}
+
+.projects div:not(.parallax, .parallax-container) {
   margin-bottom: 25px;
+  margin-top: 25px;
+
 }
 
 .project {
   padding:3%;
-  min-height: 250px;
 }
 
 .project p {
   padding: 25px;
+}
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  z-index: 0;
+  background-color: white;
+  box-shadow: inset 0px 0px 150px rgba(0,0,0,1);
+}
+
+.parallax-container .parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.parallax-container .parallax img {
+  opacity: 0.9;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  object-fit: cover;
+  width: 100%;
+  min-height: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.project-details {
+  padding: 50px;
+  position: relative;
+}
+
+.project-description {
+  padding: 20px;
+}
+
+.row.projects > :nth-child(2n+0) {
+  /* if I decide to alternate styles again */
+}
+
+.fixed-pin .heading {
+  position: fixed;
+  top: 56px;
+  box-shadow: 0 0 5px black;
+}
+
+.sticky-top {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.skills p, #aboutme p , .project p {
+    font-size: 17px;
+}
+
+.skills {
+  padding-top:20px;
+}
+#profile img {
+  height:220px;
+  border-radius: 10px;
+}
+
+#profile .card, #aboutme {
+  padding: 20px;
+}
+
+.project-contributions h5 {
+  text-align: left;
+  padding: 10px 0;
+}
+
+.project-contributions ul {
+  list-style: square outside url('data:image/gif;base64,R0lGODlhBQAKAIABAAAAAP///yH5BAEAAAEALAAAAAAFAAoAAAIIjI+ZwKwPUQEAOw==');
+  margin-left: 0;
+  padding-bottom: calc(42px + 10px);
+}
+
+.project-contributions ul li {
+  padding: 5px 0;
+}
+
+.project-details .container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.profile-placeholder {
+  height: 56px;
+  position: absolute;
+  overflow: hidden;
+}
+
+ul.dropdown-menu {
+  padding:0;
+  text-align: center;
+}
+
+.faded-out {
+  opacity: 0;
+}
+
+.faded-in {
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
+
+.header ul {
+  background: black;
 }
