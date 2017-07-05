@@ -109,19 +109,25 @@ function appendProject(project) {
   $('.projects').append(`
     <div id="${project.name}" class="faded-out">
       <div class="project-details">
-        <h4>${project.name.titleize()}</h4>
+        <h4>
+          <a href='${project.live}' target='_blank'>
+            ${project.name.titleize()}
+          </a>
+        </h4>
         <div class="project-description">
           <p>${project.description}</p>
         </div>
         <div class="container">
           <div class='col-lg-6 col-md-6 col-sm-12 col-md-xs-12'>
-            <img src='${project.picture}' class='preview'>
+            <a href='${project.live}' target='_blank'>
+              <img src='${project.picture}' class='preview'>
+            </a>
           </div>
           <div class='col-lg-6 col-md-6 col-sm-12 col-md-xs-12'>
             <section>
               <div class='project'>
                 <h5>Built with</h5>
-                <p>${project.tools} <nobr>... and ♥</nobr></p>
+                <p>${project.tools}</p>
               </div>
             </section>
           </div>

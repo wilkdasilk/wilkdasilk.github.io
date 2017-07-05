@@ -150,15 +150,6 @@ main.scrolled {
     width: 100%;
   }
 
-  .project-contributions h5 {
-    text-align: center !important;
-  }
-
-  .project-contributions ul {
-    list-style: none !important;
-    padding-left: 0;
-  }
-
   ul.dropdown-menu {
     margin: 0;
     border: none;
@@ -294,6 +285,10 @@ a, a:hover, a:focus, nav a, nav a:visited, nav a:hover, nav a:focus, #myprojects
   color:white !important;
 }
 
+h4 a, h4 a:hover, h4 a:focus, h4 a:visited {
+  color: black !important;
+}
+
 .nav>li {
   display: inline-block;
 }
@@ -330,6 +325,13 @@ section {
 
  img.preview {
    box-shadow: 2px 2px 8px black;
+   transition: box-shadow 250ms;
+
+ }
+
+ img.preview:hover {
+   box-shadow: 2px 2px 20px black;
+   transition: box-shadow 250ms;
  }
 
 footer {
@@ -501,13 +503,10 @@ main .row {
   padding: 20px;
 }
 
-.project-contributions h5 {
-  text-align: left;
-  padding: 10px 0;
-}
 
 .project-contributions ul {
-  list-style: square outside url('data:image/gif;base64,R0lGODlhBQAKAIABAAAAAP///yH5BAEAAAEALAAAAAAFAAoAAAIIjI+ZwKwPUQEAOw==');
+  list-style: none;
+  padding-left: 0;
   margin-left: 0;
   padding-bottom: calc(42px + 10px);
 }
