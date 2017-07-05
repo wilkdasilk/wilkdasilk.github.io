@@ -150,6 +150,15 @@ main.scrolled {
     width: 100%;
   }
 
+  .project-contributions h5 {
+    text-align: center !important;
+  }
+
+  .project-contributions ul {
+    list-style: none !important;
+    padding-left: 0;
+  }
+
   ul.dropdown-menu {
     margin: 0;
     border: none;
@@ -158,6 +167,12 @@ main.scrolled {
 
   span.caret {
     display: none;
+  }
+
+  .parallax-container {
+    height: 70vh !important;
+    max-height: 70vw;
+    min-height: 200px;
   }
 }
 

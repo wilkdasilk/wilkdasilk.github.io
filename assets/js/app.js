@@ -200,6 +200,7 @@ $(document).ready(function(){
         }
   });
   var $solid = $('.solidback');
+  var $header = $('header');
   var $profileWrapper = $('.profile-wrapper');
   var $headerRight = $('.header-right');
   var $textRight = $('.text-right');
@@ -239,6 +240,9 @@ $(document).ready(function(){
       $solid.css("height", function(){
         return 225 - $window.scrollTop();
       });
+      $header.css("height", function(){
+        return 225 - $window.scrollTop();
+      });
       $headerRight.css("height", function(){
         return 225 - 56 - $window.scrollTop();
       });
@@ -255,6 +259,7 @@ $(document).ready(function(){
       $textRight.addClass("scrolled");
       $navContainer.addClass("scrolled");
       $solid.css("height", 56);
+      $header.css("height", 56);
       $profileWrapper.css("visibility", "visible");
       $headerRight.css("height", 56);
       $main.addClass("scrolled");
