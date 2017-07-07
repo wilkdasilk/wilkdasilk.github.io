@@ -8,6 +8,10 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   min-width: 330px;
 }
+
+h1,h2,h3,h4,h5,h6,a {
+  font-family: 'Oxygen', sans-serif;
+}
 p {
   font-size: 1.1em;
 }
@@ -244,7 +248,7 @@ h5 {
 }
 
 .project-details h4 {
-  font-size: 2em;
+  font-size: 2.1em;
 }
 
 .profile-wrapper {
@@ -489,6 +493,7 @@ main .row {
 
 .skills p, #aboutme p , .project p {
     font-size: 17px;
+    line-height: 1.8;
 }
 
 .skills {
@@ -513,6 +518,7 @@ main .row {
 
 .project-contributions ul li {
   padding: 5px 0;
+  line-height: 1.8;
 }
 
 .project-details .container {
