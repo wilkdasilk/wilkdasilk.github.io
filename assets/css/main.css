@@ -5,11 +5,16 @@ html::-webkit-scrollbar {
 
 body {
   background-color:white;
-  font-family: 'Source Sans Pro', sans-serif;
   min-width: 330px;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+h1,h2,h3,h4,h5,h6,a {
+  font-family: 'Oxygen', sans-serif;
 }
 p {
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 header {
@@ -240,11 +245,11 @@ h4 {
 }
 
 h5 {
-  font-size: 22px;
+  font-size: 1.5em;
 }
 
 .project-details h4 {
-  font-size: 2em;
+  font-size: 2.1em;
 }
 
 .profile-wrapper {
@@ -487,8 +492,20 @@ main .row {
   z-index: 100;
 }
 
+.skills p, #aboutme p {
+  font-size: 17px;
+}
+
 .skills p, #aboutme p , .project p {
-    font-size: 17px;
+    line-height: 1.8;
+}
+
+.project p  {
+  font-size: 1.1em;
+}
+
+#aboutme p, .skills p {
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .skills {
@@ -513,6 +530,7 @@ main .row {
 
 .project-contributions ul li {
   padding: 5px 0;
+  line-height: 1.8;
 }
 
 .project-details .container {
