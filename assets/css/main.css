@@ -564,7 +564,7 @@ ul.dropdown-menu {
 
 .faded-in {
   opacity: 1;
-  transition: opacity 500ms linear;
+  transition: opacity 800ms linear;
 }
 
 .header ul {
