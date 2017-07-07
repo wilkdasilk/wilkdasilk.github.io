@@ -290,6 +290,12 @@ a, a:hover, a:focus, nav a, nav a:visited, nav a:hover, nav a:focus, #myprojects
   color:white !important;
 }
 
+nav a, nav a:visited, nav a:hover, nav a:focus, #myprojectsdropdown li a:hover, #myprojectsdropdown li a:focus {
+  background: black;
+  transition: background 250ms linear;
+
+}
+
 h4 a, h4 a:hover, h4 a:focus, h4 a:visited {
   color: black !important;
 }
@@ -298,9 +304,11 @@ h4 a, h4 a:hover, h4 a:focus, h4 a:visited {
   display: inline-block;
 }
 
-div.in .nav>li, div.collapsing .nav>li, div.collapsing .nav>li>a:focus , #myprojectsdropdown li, #myprojectsdropdown li>a:focus {
+div.in .nav>li, .nav>li>a:focus, div.collapsing .nav>li, div.collapsing .nav>li>a:focus , #myprojectsdropdown li, #myprojectsdropdown li>a:focus {
   display: block;
   background: black;
+  transition: background 250ms linear;
+
 }
 
 nav a, .project-links a, #myprojectsdropdown li a {
@@ -310,6 +318,7 @@ nav a, .project-links a, #myprojectsdropdown li a {
 
 .nav>li>a:hover, .nav>li>a:hover:focus, .project-links a, #myprojectsdropdown>li>a:hover, #myprojectsdropdown>li>a:hover:focus  {
   background:rgb(0,150,255);
+  transition: background 250ms linear;
 }
 
 .nav>li>a:focus {
