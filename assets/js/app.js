@@ -159,37 +159,37 @@ function appendLink(currentProject) {
     `);
 }
 
-function getProjects(res) {
-  res.items.forEach(function(item){
-    console.log(item.name);
-    tempProject = {
-      name: item.name,
-      description: item.description,
-      link: item.html_url,
-      live: item.homepage
-    };
-    $.ajax({
-      url: `https://api.github.com/repos/${item.full_name}/contents/app/assets/images/preview`,
-      method: "GET",
-      async: false,
-      success: addPhoto,
-      error:onError
-    });
-  });
-}
+// function getProjects(res) {
+//   res.items.forEach(function(item){
+//     console.log(item.name);
+//     tempProject = {
+//       name: item.name,
+//       description: item.description,
+//       link: item.html_url,
+//       live: item.homepage
+//     };
+//     $.ajax({
+//       url: `https://api.github.com/repos/${item.full_name}/contents/app/assets/images/preview`,
+//       method: "GET",
+//       async: false,
+//       success: addPhoto,
+//       error:onError
+//     });
+//   });
+// }
 
-function addPhoto(res) {
-  tempProject.picture = res[0].download_url;
-  data.push(tempProject);
-  currentProject = data.slice(-1)[0];
-  appendLink(currentProject, data.length-1);
-  appendProject(data[data.length - 1]);
-  tempProject = {};
-}
+// function addPhoto(res) {
+//   tempProject.picture = res[0].download_url;
+//   data.push(tempProject);
+//   currentProject = data.slice(-1)[0];
+//   appendLink(currentProject, data.length-1);
+//   appendProject(data[data.length - 1]);
+//   tempProject = {};
+// }
 
-function onError(res) {
-  console.log(res);
-}
+// function onError(res) {
+//   console.log(res);
+// }
 
 //content fades in on page ready
 $(document).ready(function(){
@@ -214,6 +214,83 @@ $(document).ready(function(){
   var $main = $('main');
   var $headingWrapper = $('.heading-wrapper');
   var $fadedOut = $('.faded-out');
+  var $cloudContainer = $('.cloud-container, .cloud-mirror');
+  var $cloud = $('.cloud');
+  var dismissed = false;
+  var offscreen = false;
+  $('.cloud-mirror').on('mouseenter', function(e){
+    $cloud.addClass('hiding');
+    setTimeout(function(){
+      dismissed = true;
+    },500);
+  });
+
+  function floatUp(){
+    //function works great
+    if ($(this).position().left >= $window.innerWidth() ){
+      offscreen = true;
+    }
+    if (offscreen|| dismissed) {
+      $(this).css({
+        "left": -150,
+        "paddingTop": 0,
+        "paddingBottom": 15,
+        "top": 0
+      });
+      offscreen = false;
+    } else {
+      $(this).stop( true, true ).animate({paddingTop: "0", paddingBottom: "15", left:"+=20"},
+      {
+        duration: 2000,
+        easing: "linear",
+        queue: false
+      }
+    );
+    }
+
+  }
+
+  function floatDown(){
+    if ($cloudContainer.first().offset().left >= $window.innerWidth()) {
+      offscreen = true
+    }
+    if (dismissed || offscreen){
+      $cloudContainer.css({
+        "left": -150,
+        "paddingTop": 0,
+        "paddingBottom": 15,
+        "top": 0
+      });
+    }
+    if (!(offscreen || dismissed)) {
+      $cloudContainer.stop( true, true ).animate({paddingTop: "15", paddingBottom: "0", left:"+=20"},
+        {
+          duration: 2000,
+          complete: floatUp,
+          easing: "linear",
+          queue: false
+        }
+      );
+    } else {
+      offscreen = false;
+      if (dismissed){
+        //for some reason doesn't always reset left value, so this won't reveal it until its correct (unless it does...)
+        if($cloudContainer.first().offset().left == -150){
+          $cloud.removeClass('hiding');
+          dismissed = !dismissed;
+        } else {
+          $cloudContainer.offset({top:0,left:-150});
+        }
+      }
+    }
+  }
+//cloud action begins after 10 seconds on page
+setTimeout(function(){
+  setInterval(function(){
+    floatDown()
+  }, 4000);
+}, 10000)
+
 
   function handleAnchorScroll(scope) {
     var offset;
@@ -334,5 +411,6 @@ $(document).ready(function(){
     $('.navbar-collapse').removeClass('in');
    }
   });
+
 
 });
