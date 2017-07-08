@@ -41,6 +41,7 @@ header {
   left:0;
   margin-right:0;
   height: 225px;
+  overflow: hidden;
 }
 
 @media (min-width: 1200px) {
@@ -104,6 +105,15 @@ main.scrolled {
   }
 
 }
+@media (min-width: 486px){
+  h1 {
+    margin:10px auto 0 auto !important;
+  }
+
+  h2 {
+    margin-top:0px !important;
+  }
+}
 
 @media (min-width: 768px) {
   .header-right {
@@ -140,6 +150,7 @@ main.scrolled {
     margin-left: 50px !important;
   }
 }
+
 @media (max-width: 767px) {
   ul .dropdown-menu {
     display: block !important;
@@ -170,6 +181,13 @@ main.scrolled {
     max-height: 70vw;
     min-height: 200px;
   }
+
+  .nav-container.scrolled {
+    top:0 !important;
+    right: 0;
+    position: absolute;
+    width: auto;
+  }
 }
 
 .header-right {
@@ -178,6 +196,8 @@ main.scrolled {
   padding-left:0px;
   height: calc(225px - 56px);
   min-height: 56px;
+  width: auto;
+  overflow: hidden;
 }
 
 .heading-wrapper {
@@ -198,10 +218,18 @@ main.scrolled {
   padding: 0px;
 }
 
+.header-right span {
+  display: inline-block;
+  background: rgba(0,0,0,.6);
+}
+.header-right.scrolled span {
+  height:100%;
+}
+
 h1.text-right.scrolled, h2.text-right.scrolled {
   display: inline-block;
   height: 100%;
-  margin:0;
+  margin:0 !important;
   padding: 15px 0;
 }
 
@@ -211,6 +239,7 @@ h1.text-right.scrolled{
 
 h2.text-right.scrolled {
   font-size: 15px;
+  padding-top:25px;
 }
 
 .nav-container.scrolled {
@@ -219,6 +248,10 @@ h2.text-right.scrolled {
 
 .navbar-collapse:before {
   height: 0;
+}
+
+.navbar-header button {
+  background: rgba(0,0,0,.6);
 }
 
 h1 {
@@ -274,11 +307,14 @@ h5 {
   clear:right;
   padding: 0;
   width: 100%;
+  z-index: 11;
 }
 
 .navbar-collapse {
   padding:0;
   border-top: unset;
+  width: 100vw;
+  min-width: 343px;
 }
 
 .navbar-toggle {
@@ -569,4 +605,110 @@ ul.dropdown-menu {
 
 .header ul {
   background: black;
+}
+
+
+.cloud-container, .cloud-mirror {
+  position: absolute;
+  top:0;
+  left:-150px;
+  width:110px;
+  height:calc(67px + 15px);
+  padding-bottom: 15px;
+  z-index: 10;
+}
+
+.cloud {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.cloud.hiding {
+  opacity: 0;
+  transition: opacity 500ms linear;
+}
+
+.puff {
+  position: absolute;
+  border-radius: 50%;
+  height:40px;
+  width: 40px;
+  background: rgb(255,255,255);
+  transition: top 500ms ease-out, left 500ms ease-out;
+}
+
+.puff:not(.double) {
+  border: 2px solid rgba(250,250,250, .8);
+  box-shadow: 10px 7px 0px rgba(0,150,255,1);
+}
+
+.puff.double {
+  z-index: -1 !important;
+  opacity: 1 !important;
+}
+
+.puff1,.puff3,.puff5 {
+  top:20px;
+}
+
+.cloud.hiding .puff1, .cloud.hiding .puff3, .cloud.hiding .puff5 {
+  top:60px;
+}
+
+.puff2,.puff4 {
+  top: 0px;
+}
+
+.cloud.hiding .puff2,.cloud.hiding .puff4 {
+  top: -40px;
+}
+
+.puff1 {
+  left: 0px;
+  opacity: 1;
+  z-index: 10;
+}
+
+.cloud.hiding .puff1 {
+  left: -40px;
+}
+
+.puff2 {
+  left: 15px;
+  opacity: 1;
+  z-index: 7;
+
+}
+
+.cloud.hiding .puff2 {
+  left: -5px;
+}
+
+.puff3 {
+  left: 30px;
+  opacity: .9;
+  z-index:11;
+}
+
+.puff4 {
+  left: 45px;
+  opacity: .9;
+  z-index: 8;
+}
+
+.cloud.hiding .puff4 {
+  left: 65px;
+}
+
+.puff5 {
+  left: 60px;
+  opacity: 1;
+  z-index: 12;
+}
+
+.cloud.hiding .puff5 {
+  left: 100px;
 }
