@@ -218,7 +218,7 @@ $(document).ready(function(){
   var $cloud = $('.cloud');
   var dismissed = false;
   var offscreen = false;
-  $('.cloud-mirror').on('mouseenter', function(e){
+  $('.cloud-mirror').on('mouseenter click', function(e){
     $cloud.addClass('hiding');
     setTimeout(function(){
       dismissed = true;
