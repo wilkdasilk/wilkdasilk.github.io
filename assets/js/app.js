@@ -41,7 +41,7 @@ var data = [
   {
     description: "What kind of creature are you? Idk, better take a quiz. Single-page app using jQuery",
     link: "https://github.com/wilkdasilk/MiddleEarthCreatureQuiz",
-    live: "https://desolate-wave-59412.herokuapp.com/",
+    live: "#",
     name: "MiddleEarthCreatureQuiz",
     picture: "https://raw.githubusercontent.com/wilkdasilk/MiddleEarthCreatureQuiz/master/app/assets/images/preview/creaturequiz-preview.png",
     tools: "MongoDB, Express, Node, jQuery, Mongoose, Bootstrap, Lodash",
@@ -50,7 +50,7 @@ var data = [
   {
     description: "A travel community for users to share city specific tips about their favorite locations around the world ",
     link: "https://github.com/wilkdasilk/vagabond",
-    live: "http://levagabond.herokuapp.com/",
+    live: "#",
     name: "vagabond",
     picture: "https://raw.githubusercontent.com/wilkdasilk/vagabond/master/app/assets/images/preview/levagabond-preview.png",
     tools: "Ruby on Rails, PostgreSQL, Bootstrap, Bcrypt, Paperclip",
@@ -59,7 +59,7 @@ var data = [
   {
     description: "An attempt to make the world a better place by providing people with cool activities to do",
     link: "https://github.com/wilkdasilk/actividay",
-    live: "http://actividay.herokuapp.com/",
+    live: "#",
     name: "actividay",
     picture: "https://raw.githubusercontent.com/wilkdasilk/actividay/master/app/assets/images/preview/actividay-preview.png",
     tools: "Ruby on Rails, PostgreSQL, Foundation, SASS, Devise, FriendlyID, CarrierWave",
@@ -68,7 +68,7 @@ var data = [
   {
     description: "Curate crowdsourced playlists around a geolocation",
     link: "https://github.com/wilkdasilk/NoiseFlag",
-    live: "http://noiseflag.herokuapp.com/",
+    live: "#",
     name: "NoiseFlag",
     picture: "https://raw.githubusercontent.com/wilkdasilk/NoiseFlag/master/app/assets/images/preview/Noiseflag_preview.png",
     tools: "Ruby on Rails, PostgreSQL, Geocoder, Google Static Maps, Spotify API, Searchkick, Bootstrap, SASS, HTTParty, CarrierWave",
@@ -77,7 +77,7 @@ var data = [
   {
     description: "Chat and streaming app for podcasters, enabling early feedback from subscribers via live listening",
     link: "https://github.com/wilkdasilk/PodBooth",
-    live: "https://podbooth.herokuapp.com/",
+    live: "#",
     name: "PodBooth",
     picture: "https://raw.githubusercontent.com/wilkdasilk/PodBooth/master/app/assets/images/preview/podbooth_preview.png",
     tools: "Angular, MongoDB, Express, Node, Mongoose, Socket.io, Web Audio API, Materialize, Passport, Express-JWT, Ng-File-Upload",
